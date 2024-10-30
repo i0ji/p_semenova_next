@@ -1,15 +1,16 @@
 import { testVar } from "public/test";
-
-
+import { Header, Slides, Footer } from "@/components/index"
 
 export default function Home() {
 
   let testfunc = testVar + 4;
-console.log(testVar);
+  console.log(testVar);
 
   return (
-    <div>
-      dd
-    </div>
+    <>
+      <Header />
+      <Slides />
+      <Footer />
+    </>
   );
 }
