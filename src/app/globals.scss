@@ -1,4 +1,4 @@
-@import "../styles/_mixin.scss";
+@use "../styles/_mixin.scss";
 
 * {
   padding: 0;
@@ -27,23 +27,21 @@ body {
   font-family: Century-gothic, sans-serif;
   line-height: 27px;
   font-size: 22px;
+  max-width: 1840px;
+  margin: 0 auto;
+  background-color: transparent;
 }
 
-@media (max-width: 1199px) {
-  body {
-    font-size: 20px;
-  }
-}
 html {
   scroll-behavior: smooth;
   display: flex;
   justify-content: center;
 }
 
-body {
-  max-width: 1840px;
-  margin: 0 auto;
-  background-color: transparent;
+@media (max-width: 1199px) {
+  body {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 1839px) {

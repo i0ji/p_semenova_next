@@ -1,6 +1,7 @@
+@use "../../styles/mixin" as m;
+
 .footer {
-  display: flex;
-  justify-content: space-between;
+  @include m.flex-between;
   flex-direction: column;
 
   h4 {
@@ -8,10 +9,10 @@
   }
 
   &__about {
+    @include m.flex(space-between, row);
+
     margin: 30px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+
     white-space: pre-line;
 
     article {
@@ -20,15 +21,13 @@
   }
 
   &__contacts {
+    @include m.flex(space-between, row);
+
     margin: 30px 0 80px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 
     div {
+      @include m.flex(space-around, column);
       width: 54%;
-      display: flex;
-      flex-direction: column;
     }
   }
 
