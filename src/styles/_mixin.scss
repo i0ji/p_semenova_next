@@ -7,8 +7,14 @@
   justify-content: space-between;
 }
 
-@mixin flex($prop, $direction) {
+@mixin flex($content, $direction) {
   display: flex;
-  flex-direction: $direction;
-  justify-content: $prop;
+
+  @if $content != null {
+    justify-content: $content;
+  }
+
+  @if $direction != null {
+    flex-direction: $direction;
+  }
 }
