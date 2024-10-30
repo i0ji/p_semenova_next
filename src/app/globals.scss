@@ -1,4 +1,5 @@
-@use "../styles/_mixin.scss" as m;
+@use "../styles/_mixin" as m;
+@use "../styles/underline";
 
 * {
   padding: 0;
@@ -12,17 +13,20 @@
   box-sizing: border-box;
 }
 
+html {
+  @include m.flex(center, "");
+  scroll-behavior: smooth;
+}
+
 a,
 a:link,
 a:visited {
   text-decoration: none;
   color: black;
-  transition: 1s all ease;
 }
 
 a:hover {
   text-decoration: none;
-  color: rgb(179, 7, 7);
 }
 
 body {
@@ -32,11 +36,6 @@ body {
   max-width: 1840px;
   margin: 0 auto;
   background-color: transparent;
-}
-
-html {
-  @include m.flex(center, "");
-  scroll-behavior: smooth;
 }
 
 @media (max-width: 1199px) {

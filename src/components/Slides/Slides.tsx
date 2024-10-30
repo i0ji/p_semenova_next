@@ -1,7 +1,8 @@
+import s from "./Slides.module.scss";
+
 export default function Slides() {
     return (
-        <>
-            hello
-        </>
+        <div className={s.temp}>hello</div>
+
     )
 }
