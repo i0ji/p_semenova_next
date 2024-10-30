@@ -26,7 +26,7 @@
     margin: 30px 0 80px 0;
 
     div {
-      @include m.flex(space-around, column);
+      @include m.flex("", column);
       width: 54%;
     }
   }
