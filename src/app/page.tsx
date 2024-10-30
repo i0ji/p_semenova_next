@@ -3,8 +3,7 @@ import { Header, Slides, Footer } from "@/components/index"
 
 export default function Home() {
 
-  let testfunc = testVar + 4;
-  console.log(testVar);
+  console.log("v: 0.0.1");
 
   return (
     <>

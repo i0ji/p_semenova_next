@@ -10,3 +10,5 @@ Table of contents:
 2.<br>
 <b>v: 0.0.1 29.10.24</b> <br>    
 project/repo init, git-flow init, first commit,
+<b>v: 0.0.1 30.10.24</b> <br>    
+The basic structure, layout and styles are copied from the original app, adapted to use Next.JS
