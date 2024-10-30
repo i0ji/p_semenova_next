@@ -9,7 +9,7 @@ export default function Footer() {
             <hr />
 
             <div id="about" className={styles.footer__about}>
-                <h4>Катерина Семёнова</h4>
+                <h4>Обо мне</h4>
                 <article>
                     Графический дизайнер с&nbsp;6-летним опытом. На&nbsp;данный момент
                     занимаюсь разработкой и&nbsp;поддержкой фирменных стилей, навигации,
