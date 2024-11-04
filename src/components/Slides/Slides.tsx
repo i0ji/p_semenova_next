@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function Slides() {
     const [slides, setSlides] = useState<SlideModel[]>([]);
@@ -32,7 +33,9 @@ export default function Slides() {
                 {slides.map((slide) => (
                     <div key={slide.id} style={{ margin: '10px' }}>
                         <h3>{slide.slide_name}</h3>
-                        {slide.image_path && <img src={slide.image_path} alt={slide.slide_name} width={300} />}
+                        {slide.image_path &&
+                            <Image src={slide.image_path} alt={slide.slide_name} width={300} />
+                        }
                         {slide.description && <p>{slide.description}</p>}
                     </div>
                 ))}

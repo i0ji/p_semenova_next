@@ -34,16 +34,16 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
       eslint:
-        specifier: ^9.13.0
+        specifier: ^9.14.0
         version: 9.14.0
       eslint-config-next:
         specifier: 15.0.2
         version: 15.0.2(eslint@9.14.0)(typescript@5.6.3)
       sass:
-        specifier: ^1.80.5
+        specifier: ^1.80.6
         version: 1.80.6
       sass-loader:
-        specifier: ^16.0.2
+        specifier: ^16.0.3
         version: 16.0.3(sass@1.80.6)
       typescript:
         specifier: ^5.6.3
