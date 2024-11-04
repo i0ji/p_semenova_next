@@ -1,6 +1,5 @@
-// src/pages/api/slides.ts
 import { NextApiRequest, NextApiResponse } from "next";
-import mysql from "mysql2/promise"; // Убедитесь, что используете mysql2
+import mysql from "mysql2/promise";
 
 export default async function handler(
   req: NextApiRequest,
@@ -24,7 +23,7 @@ export default async function handler(
 
     res.status(200).json(rows);
   } catch (error) {
-    console.error("Ошибка при получении данных слайдов:", error);
+    console.log("error: ", error);
     res.status(500).json({ error: "Ошибка при получении данных слайдов" });
   }
 }
