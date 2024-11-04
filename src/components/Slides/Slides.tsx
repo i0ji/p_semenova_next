@@ -10,8 +10,9 @@ export default function Slides() {
     useEffect(() => {
         const fetchSlides = async () => {
             try {
-                const response = await fetch('/api/slides');
+                const response = await fetch('/pages/api/slides');
                 if (!response.ok) {
+                    console.log(response);
                     throw new Error('Ошибка при загрузке слайдов');
                 }
                 const data = await response.json();
