@@ -1,9 +1,8 @@
 'use client'
 
-import { SlideModel } from '@/services/declarations';
 import { useEffect, useState } from 'react';
 
-const Slides = () => {
+export default function Slides() {
     const [slides, setSlides] = useState<SlideModel[]>([]);
     const [error, setError] = useState<string | null>(null);
 
@@ -11,37 +10,33 @@ const Slides = () => {
         const fetchSlides = async () => {
             try {
                 const response = await fetch('/api/slides');
-
                 if (!response.ok) {
-                    throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
+                    throw new Error('Ошибка при загрузке слайдов');
                 }
-
-                const data: SlideModel[] = await response.json();
+                const data = await response.json();
                 setSlides(data);
             } catch (err) {
-                console.error('Ошибка при загрузке слайдов:', err);
-                setError(err instanceof Error ? err.message : 'Неизвестная ошибка');
+                setError((err as Error).message);
             }
         };
 
         fetchSlides();
     }, []);
 
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    if (error) return <div>Error: {error}</div>;
 
     return (
         <div>
-            {slides.map(slide => (
-                <div key={slide.id}>
-                    <h2>{slide.slide_name}</h2>
-                    <p>{slide.description}</p>
-                    <img src={slide.image_path} alt={slide.slide_name} />
-                </div>
-            ))}
+            <h2>Слайды</h2>
+            <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                {slides.map((slide) => (
+                    <div key={slide.id} style={{ margin: '10px' }}>
+                        <h3>{slide.slide_name}</h3>
+                        {slide.image_path && <img src={slide.image_path} alt={slide.slide_name} width={300} />}
+                        {slide.description && <p>{slide.description}</p>}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
-
-export default Slides;
