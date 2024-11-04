@@ -10,7 +10,7 @@ const Slides = () => {
     useEffect(() => {
         const fetchSlides = async () => {
             try {
-                const response = await fetch('/api/slides'); // Убедитесь, что путь правильный
+                const response = await fetch('/api/slides');
 
                 if (!response.ok) {
                     throw new Error(`Ошибка: ${response.status} ${response.statusText}`);
