@@ -4,6 +4,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: black;
+  font-weight: normal;
 }
 
 a:visited {
@@ -12,9 +13,9 @@ a:visited {
 
 a:after {
   display: block;
-  content: "";
+  content: '';
   background-color: black;
-  height: 2.5px;
+  height: 2px;
   width: 0;
   left: 50%;
   position: absolute;
@@ -22,6 +23,8 @@ a:after {
   transition: width 0.3s ease-in-out;
   transform: translateX(-50%);
 }
+//TODO
+//first and last lines are thiner
 
 a:hover:after,
 a:focus:after {

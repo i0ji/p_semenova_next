@@ -1,6 +1,4 @@
-'use client';
-
-import styles from "./Slides.module.scss";
+import styles from './Slides.module.scss';
 
 const Slides = () => {
   return <div className={styles.temp}>ddddd</div>;

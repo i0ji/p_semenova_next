@@ -3,6 +3,18 @@
 .footer {
   @include flex(space-between, column);
 
+  hr {
+    width: 100%;
+    margin: 0;
+    height: 1px;
+    background-color: #51515180;
+  }
+
+  h4 {
+    font-weight: normal;
+    height: 1px;
+  }
+
   &__about {
     @include flex(space-between, row);
 
@@ -12,10 +24,6 @@
 
     article {
       width: 54%;
-    }
-
-    &_header {
-      font-weight: 500;
     }
   }
 
@@ -28,12 +36,6 @@
       @include flex('', column);
       width: 54%;
     }
-  }
-
-  hr {
-    width: 100%;
-    margin: 0;
-    box-shadow: 1px 1px 1px rgba(250, 250, 250, 0.5);
   }
 }
 

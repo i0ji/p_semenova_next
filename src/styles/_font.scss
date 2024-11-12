@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'centurygothic';
-  src: url('/src/assets/fonts/centurygothic.woff') format('woff');
+  font-family: 'CenturyGothic';
+  src: url('../assets/fonts/centurygothic.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 body {
-  font-family: 'YourFontName', sans-serif; /* Примените шрифт к вашему телу или другим элементам */
+  font-family: 'CenturyGothic', sans-serif; 
 }

@@ -3,11 +3,11 @@ import styles from './Footer.module.scss';
 
 export default function Footer() {
   return (
-    <div className={styles.footer}>
+    <footer className={styles.footer}>
       <hr />
 
       <div id="about" className={styles.footer__about}>
-        <h4>Обо мне</h4>
+        <h4>Катерина</h4>
         <article>
           Графический дизайнер с&nbsp;6-летним опытом. На&nbsp;данный момент
           занимаюсь разработкой и&nbsp;поддержкой фирменных стилей, навигации,
@@ -51,6 +51,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }

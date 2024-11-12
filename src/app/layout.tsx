@@ -1,22 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata } from 'next';
 
-import "./globals.scss";
-
+import './globals.scss';
 
 export const metadata: Metadata = {
-  title: "Katerina Semenova - graphic designer",
+  title: 'Katerina Semenova - graphic designer'
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="ru">
-      <body >
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
