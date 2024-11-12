@@ -1,32 +1,20 @@
+'use client';
+
+import { useState } from 'react';
 import styles from './Slides.module.scss';
-// import Slider from 'react-slick';
-// import 'slick-carousel/slick/slick.css';
-// import 'slick-carousel/slick/slick-theme.css';
-// import { SlideData } from '@/assets';
-// import Image from 'next/image';
+import Image from 'next/image';
 
-// import dynamic from 'next/dynamic';
-
-// const DynamicSlider = dynamic(() => import('react-slick'), {
-//   ssr: false, // Disable server-side rendering for this component
-// });
-
-import a1 from '@/assets/AnniversarySlides/a1.webp';
-
-export default function Slides() {
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1
-  // };
+export default function Slides(props: SlidesModel) {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <div className={styles.temp}>
-      {/* <Slider {...settings}> */}
-   <img src={a1.src} alt="" />
-      {/* </Slider> */}
+      {props.slides.map((slide) => (
+        <div key={slide.id}>
+          <Image src={slide.img} alt="" key={props.id} />
+        </div>
+      ))}
+      <p>{props.description}</p>
     </div>
   );
 }
