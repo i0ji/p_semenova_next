@@ -23,6 +23,7 @@ Still have issue with SASS -> Migration;
 MySQL connecting attempts;    <br>
 <b>v: 0.0.1a / d: 12.11.24<br></b> 
 While I have some problems with connecting to the DB, I decided to make a static, local resource storage as it was before;
+<br>Add react-slick lib to implement carousel;
 <br>
 
 
