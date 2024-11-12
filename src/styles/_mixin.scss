@@ -2,11 +2,6 @@
   background-color: red;
 }
 
-@mixin flex-between {
-  display: flex;
-  justify-content: space-between;
-}
-
 @mixin flex($content, $direction) {
   display: flex;
 

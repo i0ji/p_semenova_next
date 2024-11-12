@@ -19,6 +19,10 @@ The basic structure, layout and styles are copied from the original app, adapted
 Implement scroll, add new styles: mixins and link underline animation;
 Still have issue with SASS -> Migration;
 <br>  
-<b>v: 0.0.1 / d: 04.11.24</b> <br>
-MySQL connecting attempts;    
+<b>v: 0.0.1 / d: 04.11.24<br></b> 
+MySQL connecting attempts;    <br>
+<b>v: 0.0.1a / d: 12.11.24<br></b> 
+While I have some problems with connecting to the DB, I decided to make a static, local resource storage as it was before;
+<br>
+
 

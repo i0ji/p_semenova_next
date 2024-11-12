@@ -1,5 +1,4 @@
-@use "../styles/_mixin" as m;
-@use "../styles/underline";
+@use '@/styles/index' as *;
 
 * {
   padding: 0;
@@ -14,7 +13,7 @@
 }
 
 html {
-  @include m.flex(center, "");
+  @include flex(center, '');
   scroll-behavior: smooth;
 }
 
@@ -30,7 +29,6 @@ a:hover {
 }
 
 body {
-  font-family: Century-gothic, sans-serif;
   line-height: 27px;
   font-size: 22px;
   max-width: 1840px;
