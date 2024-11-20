@@ -1,9 +1,9 @@
 .slides {
   margin-bottom: 30px;
-  position: relative;
 
   &__image {
-    width: 100%;
+    position: relative;
+    max-width: 100%;
     object-fit: cover;
     border-radius: 30px;
   }
@@ -14,18 +14,18 @@
 
   .leftArrow,
   .rightArrow {
-    border-radius: 30px;
-    top: 0;
-    padding: 0;
-    margin: 0;
-    //FIXME
-    // border: 3px solid red;
     position: absolute;
     z-index: 1;
+
+    top: calc(50% - 1px);
+    padding: 0;
+    margin: 0;
     width: 30%;
-    height: 199%;
+    height: 1198px;
+
     background-color: transparent;
-    transition: 0.5s all;
+    border-radius: 30px;
+
     opacity: 0;
     cursor: default;
     transition: 1s all ease;
@@ -41,19 +41,27 @@
   }
 
   .leftArrow:hover {
+    border-radius: 30px;
     opacity: 0.3;
     background: linear-gradient(-90deg, transparent, black) transparent;
   }
   .rightArrow:hover {
+    border-radius: 30px;
     opacity: 0.3;
     background: linear-gradient(90deg, transparent, black) transparent;
   }
 }
 
 @media (max-width: 840px) {
-  .slides_content {
+  .slides {
     ul {
-      display: none !important;
+      bottom: 1rem;
+      text-align: center;
+      display: none;
+    }
+
+    p {
+      text-align: center;
     }
   }
 }

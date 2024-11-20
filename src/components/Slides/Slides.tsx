@@ -28,11 +28,6 @@ export default function Slides(props: SlidesDataModel) {
     nextArrow: <button className={styles.arrow}>&gt;</button>
   };
 
-  //CONSOLE checking unique keys
-  // for (let i = 0; i < props.slides.length; i++) {
-  //   console.log(props.slides[i].id);
-  // }
-
   return (
     <div className={styles.slides}>
       <Slider ref={sliderRef} {...settings}>
