@@ -3,7 +3,7 @@ import { SlideData } from '@/assets';
 import { SlidesDataModel } from '@/services/declarations';
 
 export default function Home() {
-  console.log('v: 0.0.a');
+  console.log('v: 0.1.0 a');
 
   return (
     <>

@@ -1,10 +1,8 @@
 .slides {
-  //   width: 100%;
   margin-bottom: 30px;
 
   &__image {
-    width: 100%; /* или фиксированная ширина */
-    // height: 300px; /* фиксированная высота */
+    width: 100%;
     object-fit: cover;
   }
 

@@ -8,7 +8,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function Slides(props: SlidesDataModel) {
-
   const settings = {
     dots: true,
     fade: true,
@@ -32,15 +31,14 @@ export default function Slides(props: SlidesDataModel) {
   // }
 
   return (
-    // FIXME remove class
     <div className={styles.slides}>
       <Slider {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id}>
-            <Image 
-            src={slide.img} 
-            alt={props.description} 
-            className={styles.slides__image}
+            <Image
+              src={slide.img}
+              alt={props.description}
+              className={styles.slides__image}
             />
           </div>
         ))}
