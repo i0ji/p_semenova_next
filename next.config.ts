@@ -5,7 +5,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
   distDir: 'build',
-  // output: 'export',
+  output: 'export',
   basePath: '',
   assetPrefix: '',
   webpack: (config) => {
