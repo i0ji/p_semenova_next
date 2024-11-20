@@ -10,13 +10,12 @@ export default function Home() {
       <Header />
 
       {SlideData.map((slides: SlidesDataModel) => (
-        <section key={slides.id}>
-          <Slides
-            slides={slides.slides}
-            description={slides.description}
-            lastSlide={slides.lastSlide}
-          />
-        </section>
+        <Slides
+          key={slides.id}
+          slides={slides.slides}
+          description={slides.description}
+          lastSlide={slides.lastSlide}
+        />
       ))}
 
       <Footer />

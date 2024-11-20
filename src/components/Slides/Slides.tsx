@@ -21,34 +21,29 @@ export default function Slides(props: SlidesDataModel) {
     slidesToScroll: 1,
     waitForAnimate: false,
     autoplay: true,
-    autoplaySpeed: 2500,
+    autoplaySpeed: 3000,
     pauseOnHover: true,
-    arrows: false,
-    prevArrow: <button className={styles.arrow}>&lt;</button>,
-    nextArrow: <button className={styles.arrow}>&gt;</button>
+    arrows: false
   };
 
-  //CONSOLE checking unique keys
-  // for (let i = 0; i < props.slides.length; i++) {
-  //   console.log(props.slides[i].id);
-  // }
-
   return (
-    <div className={styles.slides}>
+    <section className={styles.slides}>
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
-          <div key={slide.id}>
+          <div key={slide.id} className={styles.slide}>
             <Image
+              id="image"
               src={slide.img}
               alt={props.description}
-              className={styles.slides__image}
+              className={styles.slide__image}
+              layout="responsive"
             />
-            <div
-              className={styles.leftArrow}
+            <button
+              className={styles.slide__leftArrow}
               onClick={() => sliderRef.current?.slickPrev()}
             />
-            <div
-              className={styles.rightArrow}
+            <button
+              className={styles.slide__rightArrow}
               onClick={() => sliderRef.current?.slickNext()}
             />
           </div>
@@ -56,6 +51,6 @@ export default function Slides(props: SlidesDataModel) {
       </Slider>
 
       <p>{props.description}</p>
-    </div>
+    </section>
   );
 }
