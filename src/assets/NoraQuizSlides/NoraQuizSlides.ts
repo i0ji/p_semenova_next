@@ -6,12 +6,12 @@ import q5 from './q5.webp';
 import q6 from './q6.webp';
 
 export const NoraQuizSlides = [
-  { id: 0, img: q1 },
-  { id: 1, img: q2 },
-  { id: 2, img: q3 },
-  { id: 3, img: q4 },
-  { id: 4, img: q5 },
-  { id: 5, img: q6 }
+  { id: 13, img: q1 },
+  { id: 14, img: q2 },
+  { id: 15, img: q3 },
+  { id: 16, img: q4 },
+  { id: 17, img: q5 },
+  { id: 18, img: q6 }
 ];
 
 export const NoraQuizDescription =

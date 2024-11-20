@@ -1,5 +1,6 @@
 import { Header, Slides, Footer } from '@/components/index';
 import { SlideData } from '@/assets';
+import { SlidesDataModel } from '@/services/declarations';
 
 export default function Home() {
   console.log('v: 0.0.2a');
@@ -7,7 +8,8 @@ export default function Home() {
   return (
     <>
       <Header />
-      {SlideData.map((slides: SlidesModel) => (
+
+      {SlideData.map((slides: SlidesDataModel) => (
         <section key={slides.id}>
           <Slides
             slides={slides.slides}
@@ -16,6 +18,7 @@ export default function Home() {
           />
         </section>
       ))}
+
       <Footer />
     </>
   );

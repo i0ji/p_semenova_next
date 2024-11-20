@@ -8,14 +8,14 @@ import s7 from './p7.webp';
 import s8 from './p8.webp';
 
 export const PatternSlides = [
-  { id: 0, img: s1 },
-  { id: 1, img: s2 },
-  { id: 2, img: s3 },
-  { id: 3, img: s4 },
-  { id: 4, img: s5 },
-  { id: 5, img: s6 },
-  { id: 6, img: s7 },
-  { id: 7, img: s8 }
+  { id: 22, img: s1 },
+  { id: 23, img: s2 },
+  { id: 24, img: s3 },
+  { id: 25, img: s4 },
+  { id: 26, img: s5 },
+  { id: 27, img: s6 },
+  { id: 28, img: s7 },
+  { id: 29, img: s8 }
 ];
 
 export const PatternDescription =
