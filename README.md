@@ -25,5 +25,9 @@ MySQL connecting attempts;    <br>
 While I have some problems with connecting to the DB, I decided to make a static, local resource storage as it was before;
 <br>Add react-slick lib to implement carousel;
 <br>
+<b>v: 0.0.3a / d: 20.11.24<br></b> 
+Setteled on the choice of react-slick lib to implement slider;
+Setting styles and small logic touches;
+
 
 

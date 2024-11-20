@@ -1,6 +1,6 @@
 {
   "name": "semenova_next",
-  "version": "0.0.1",
+  "version": "0.0.3a",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

@@ -1,5 +1,22 @@
-.temp {
-    background-color: gray;
-    width: 100%;;
-    margin-bottom: 30px;
+.slides {
+  //   width: 100%;
+  margin-bottom: 30px;
+
+  &__image {
+    width: 100%; /* или фиксированная ширина */
+    // height: 300px; /* фиксированная высота */
+    object-fit: cover;
+  }
+
+  ul {
+    text-align: right;
+  }
+}
+
+@media (max-width: 840px) {
+  .slides_content {
+    ul {
+      display: none !important;
+    }
+  }
 }

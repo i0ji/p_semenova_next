@@ -25,11 +25,11 @@ import {
 import { TsumSlides, TsumDescription } from './TsumSlides/TsumSlides';
 
 export const SlideData = [
-  { slides: AnniversarySlides, description: AnniversaryDescription },
-  { slides: NagaStyleSlides, description: NagaStyleDescription },
-  { slides: NoraQuizSlides, description: NoraQuizDescription },
-  { slides: NoraStyleSlides, description: NoraStyleDescription },
-  { slides: PatternSlides, description: PatternDescription },
-  { slides: SeagullSlides, description: SeagullDescription },
-  { slides: TsumSlides, description: TsumDescription }
+  { slides: AnniversarySlides, description: AnniversaryDescription, id: 1 },
+  { slides: NagaStyleSlides, description: NagaStyleDescription, id: 2 },
+  { slides: NoraQuizSlides, description: NoraQuizDescription, id: 3 },
+  { slides: NoraStyleSlides, description: NoraStyleDescription, id: 4 },
+  { slides: PatternSlides, description: PatternDescription, id: 5 },
+  { slides: SeagullSlides, description: SeagullDescription, id: 6 },
+  { slides: TsumSlides, description: TsumDescription, id: 7 }
 ];

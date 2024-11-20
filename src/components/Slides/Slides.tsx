@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function Slides(props: SlidesDataModel) {
+
   const settings = {
     dots: true,
     fade: true,
@@ -19,17 +20,28 @@ export default function Slides(props: SlidesDataModel) {
     waitForAnimate: false,
     autoplay: true,
     autoplaySpeed: 2500,
-    arrows: true,
     pauseOnHover: true,
+    arrows: false,
+    prevArrow: <button className={styles.arrow}>&lt;</button>,
+    nextArrow: <button className={styles.arrow}>&gt;</button>
   };
+
+  //CONSOLE checking unique keys
+  // for (let i = 0; i < props.slides.length; i++) {
+  //   console.log(props.slides[i].id);
+  // }
 
   return (
     // FIXME remove class
-    <div className={styles.temp}>
+    <div className={styles.slides}>
       <Slider {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id}>
-            <Image src={slide.img} alt="" />
+            <Image 
+            src={slide.img} 
+            alt={props.description} 
+            className={styles.slides__image}
+            />
           </div>
         ))}
       </Slider>
