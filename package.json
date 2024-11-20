@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build --repo https://github.com/i0ji/p_katerina_semenova_next"
   },
   "dependencies": {
     "next": "15.0.3",
