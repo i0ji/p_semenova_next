@@ -1,13 +1,52 @@
 .slides {
   margin-bottom: 30px;
+  position: relative;
 
   &__image {
     width: 100%;
     object-fit: cover;
+    border-radius: 30px;
   }
 
   ul {
     text-align: right;
+  }
+
+  .leftArrow,
+  .rightArrow {
+    border-radius: 30px;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    //FIXME
+    // border: 3px solid red;
+    position: absolute;
+    z-index: 1;
+    width: 30%;
+    height: 199%;
+    background-color: transparent;
+    transition: 0.5s all;
+    opacity: 0;
+    cursor: default;
+    transition: 1s all ease;
+    transform: translateY(-50%);
+  }
+
+  .leftArrow {
+    left: 0;
+  }
+
+  .rightArrow {
+    right: 0;
+  }
+
+  .leftArrow:hover {
+    opacity: 0.3;
+    background: linear-gradient(-90deg, transparent, black) transparent;
+  }
+  .rightArrow:hover {
+    opacity: 0.3;
+    background: linear-gradient(90deg, transparent, black) transparent;
   }
 }
 
