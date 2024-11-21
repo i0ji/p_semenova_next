@@ -19,10 +19,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
@@ -54,10 +54,10 @@ jobs:
       - name: Build Next.js app
         run: pnpm next build
 
-      - name: Upload pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: .next
+          path: ./out
 
   deploy:
     environment:
