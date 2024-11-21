@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      yml:v18.4
+      yml:v18.5
       {SlideData.map((slides: SlidesDataModel) => (
         <Slides
           key={slides.id}
