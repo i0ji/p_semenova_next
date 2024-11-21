@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  basePath: '',
-  assetPrefix: '',
+  basePath: '/out',
+  assetPrefix: '/out',
   webpack: (config) => {
     config.resolve.alias['@styles'] = './src/styles/*';
     return config;
