@@ -5,23 +5,22 @@ import Slider from 'react-slick';
 import styles from './Slides.module.scss';
 import Image from 'next/image';
 import { SlidesDataModel } from '@/services/declarations';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+
 
 export default function Slides(props: SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
 
   const settings = {
     dots: true,
-    fade: false,
+    fade: true,
     infinite: true,
-    speed: 1000,
+    speed: 1500,
     lazyLoad: 'ondemand' as 'ondemand' | 'progressive',
     slidesToShow: 1,
     slidesToScroll: 1,
-    waitForAnimate: false,
+    waitForAnimate: true,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 4000,
     pauseOnHover: true,
     arrows: false
   };
