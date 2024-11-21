@@ -14,8 +14,8 @@ const nextConfig: NextConfig = {
   //OPTION
   // basePath: isProd ? '/p_katerina_semenova_next' : '',
   // assetPrefix: isProd ? '/p_katerina_semenova_next' : '',
-  basePath: '',
-  assetPrefix: '',
+  basePath: '/p_katerina_semenova_next',
+  assetPrefix: '/p_katerina_semenova_next',
   webpack: (config) => {
     config.resolve.alias['@styles'] = './src/styles/*';
     return config;

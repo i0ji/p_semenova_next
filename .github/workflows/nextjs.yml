@@ -3,7 +3,6 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ['master']
-
   workflow_dispatch:
 
 permissions:
@@ -32,7 +31,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: 8
           run_install: false
 
       - name: Get pnpm store directory
@@ -54,10 +53,13 @@ jobs:
         uses: actions/configure-pages@v3
         with:
           static_site_generator: next
+
       - name: Build with Next.js
         run: pnpm next build
-      # - name: Static HTML export with Next.js
-      #   run: pnpm next export
+
+      - name: Export static site
+        run: pnpm next export
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
