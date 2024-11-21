@@ -13,9 +13,9 @@ export default function Slides(props: SlidesDataModel) {
 
   const settings = {
     dots: true,
-    fade: true,
+    fade: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     lazyLoad: 'ondemand' as 'ondemand' | 'progressive',
     slidesToShow: 1,
     slidesToScroll: 1,

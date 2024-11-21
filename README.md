@@ -29,8 +29,9 @@ While I have some problems with connecting to the DB, I decided to make a static
 <b>v: 0.0.3a / d: 20.11.24<br></b> 
 Setteled on the choice of react-slick lib to implement slider;
 Setting styles and small logic touches;
-<b>v: 0.1.0 a / d: 21.11.24<br></b> 
+<br><b>v: 0.1.0 a / d: 21.11.24<br></b> 
 Start GH Action settings and met some deploy issues with paths;
-
+After about <b>56(!SIC)</b> deploys found out how to set next.conifg+nextjs.yml for deploying static app;
+I have working styles and logic, although some features like fonts and library styles don't work as well;
 
 
