@@ -54,6 +54,11 @@ jobs:
       - name: Build Next.js app
         run: pnpm next build
 
+      - name: Check output directory
+        run: |
+          echo "Checking contents of ./out directory:"
+          ls -al ./out
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
