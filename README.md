@@ -33,5 +33,9 @@ Setting styles and small logic touches;
 Start GH Action settings and met some deploy issues with paths;
 After about <b>56(!SIC)</b> deploys found out how to set next.conifg+nextjs.yml for deploying static app;
 I have working styles and logic, although some features like fonts and library styles don't work as well;
+<br><br>
+Decided to use another lib - Swiper;<br>
+Styling in progress;<br>
+I am almost satisfied with everything;
 
 
