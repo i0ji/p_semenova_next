@@ -1,12 +1,13 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import styles from './Slides.module.scss';
 import Image from 'next/image';
 import { SlidesDataModel } from '@/services/declarations';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Loading from './loading';
 
 export default function Slides(props: SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
@@ -36,7 +37,6 @@ export default function Slides(props: SlidesDataModel) {
               src={slide.img}
               alt={props.description}
               className={styles.slide__image}
-              layout="responsive"
             />
             <button
               className={styles.slide__leftArrow}
@@ -49,6 +49,7 @@ export default function Slides(props: SlidesDataModel) {
           </div>
         ))}
       </Slider>
+      {/* <Loading/> */}
 
       <p>{props.description}</p>
     </section>
