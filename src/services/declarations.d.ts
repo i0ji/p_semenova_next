@@ -2,7 +2,7 @@ import { StaticImageData } from 'next/image';
 
 interface SlideModel {
   id: number;
-  img: StaticImageData;
+  img: string | StaticImageData;
 }
 
 interface SlidesDataModel {

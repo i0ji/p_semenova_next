@@ -2,12 +2,16 @@
   "name": "semenova_next",
   "version": "0.1.0 a",
   "private": true,
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/i0ji/p_katerina_semenova_next.git"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d out -b gh-pages"
   },
   "dependencies": {
     "next": "15.0.3",

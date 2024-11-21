@@ -9,6 +9,7 @@ Table of contents:
 <hr>
 1.<br>
 Next.JS, SASS, TS
+Choose React-slick to implement slider: it has fade in/out, dots, 
 <hr>
 2.<br>
 <b>v: 0.0.1 / d: 29.10.24</b> <br>    
@@ -28,6 +29,7 @@ While I have some problems with connecting to the DB, I decided to make a static
 <b>v: 0.0.3a / d: 20.11.24<br></b> 
 Setteled on the choice of react-slick lib to implement slider;
 Setting styles and small logic touches;
+<b>v: 0.0.3a / d: 20.11.24<br></b> 
 
 
 

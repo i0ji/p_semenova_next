@@ -1,5 +1,5 @@
 import { Header, Slides, Footer } from '@/components/index';
-import { SlideData } from '@/assets';
+import { SlideData } from 'public';
 import { SlidesDataModel } from '@/services/declarations';
 
 
