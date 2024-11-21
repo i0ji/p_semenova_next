@@ -1,17 +1,10 @@
-import q1 from './q1.webp';
-import q2 from './q2.webp';
-import q3 from './q3.webp';
-import q4 from './q4.webp';
-import q5 from './q5.webp';
-import q6 from './q6.webp';
-
 export const NoraQuizSlides = [
-  { id: 12, img: q1 },
-  { id: 13, img: q2 },
-  { id: 14, img: q3 },
-  { id: 15, img: q4 },
-  { id: 16, img: q5 },
-  { id: 17, img: q6 }
+  { id: 12, img: '/NoraQuizSlides/q2.webp' },
+  { id: 13, img: '/NoraQuizSlides/q3.webp' },
+  { id: 14, img: '/NoraQuizSlides/q4.webp' },
+  { id: 15, img: '/NoraQuizSlides/q5.webp' },
+  { id: 16, img: '/NoraQuizSlides/q6.webp' },
+  { id: 17, img: '/NoraQuizSlides/q7.webp' }
 ];
 
 export const NoraQuizDescription =

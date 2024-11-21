@@ -1,10 +1,6 @@
-import s1 from './s1.webp';
-import s2 from './s2.webp';
-import s3 from './s3.webp';
-
 export const NoraStyleSlides = [
-  { id: 18, img: s1 },
-  { id: 19, img: s2 },
-  { id: 20, img: s3 }
+  { id: 18, img: '/NoraStyleSlides/s1.webp' },
+  { id: 19, img: '/NoraStyleSlides/s2.webp' },
+  { id: 20, img: '/NoraStyleSlides/s3.webp' }
 ];
-export const NoraStyleDescription = 'ТРЦ Нора  ——  айдентика —— 2021';
+export const NoraStyleDescription  = 'ТРЦ Нора  ——  айдентика —— 2021';
