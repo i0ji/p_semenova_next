@@ -1,56 +1,59 @@
 'use client';
 
-import { useRef } from 'react';
-import Slider from 'react-slick';
 import styles from './Slides.module.scss';
 import Image from 'next/image';
 import { SlidesDataModel } from '@/services/declarations';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { Autoplay, Keyboard, Pagination, Navigation } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 export default function Slides(props: SlidesDataModel) {
-  const sliderRef = useRef<Slider>(null);
-
-  const settings = {
-    dots: true,
-    fade: false,
-    infinite: true,
-    speed: 1000,
-    lazyLoad: 'ondemand' as 'ondemand' | 'progressive',
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    waitForAnimate: false,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
-    arrows: false
-  };
-
   return (
     <section className={styles.slides}>
-      <Slider ref={sliderRef} {...settings}>
-        {props.slides.map((slide) => (
-          <div key={slide.id} className={styles.slide}>
-            <Image
-              id="image"
-              src={slide.img}
-              alt={props.description}
-              className={styles.slide__image}
-              width={1600}
-              height={900}
-              layout="responsive"
-            />
-            <button
-              className={styles.slide__leftArrow}
-              onClick={() => sliderRef.current?.slickPrev()}
-            />
-            <button
-              className={styles.slide__rightArrow}
-              onClick={() => sliderRef.current?.slickNext()}
-            />
-          </div>
-        ))}
-      </Slider>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        keyboard={{
+          enabled: true
+        }}
+        navigation={{
+          nextEl: '.swiperButtonNext',
+          prevEl: '.swiperButtonPrev'
+        }}
+        modules={[Autoplay, Keyboard, Pagination, Navigation]}
+        className="mySwiper"
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false
+        }}
+        pagination={{
+          clickable: true
+        }}
+      >
+        <div className={'swiper-wrapper'}>
+          {props.slides.map((slide) => (
+            <SwiperSlide
+              key={slide.id}
+              className={`${styles.slide} ${'swiper-slide'}`}
+            >
+              <Image
+                id="image"
+                src={slide.img}
+                alt={props.description}
+                className={styles.slide__image}
+                width={1600}
+                height={900}
+                layout="responsive"
+              />
+              <div className={styles.swiperButtonPrev}></div>
+              <div className={styles.swiperButtonNext}></div>
+            </SwiperSlide>
+          ))}
+        </div>
+      </Swiper>
       <p>{props.description}</p>
     </section>
   );
