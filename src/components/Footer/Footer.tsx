@@ -1,11 +1,33 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './Footer.module.scss';
 
-import ScrollButton from '@/components/ScrollButton/ScrollButton';
-
 export default function Footer() {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight;
+
+      setShowButton(isBottom);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <footer className={styles.footer}>
       <hr />
@@ -54,7 +76,11 @@ export default function Footer() {
             </a>
           </p>
         </div>
-        <ScrollButton />
+        {showButton && (
+          <button onClick={scrollToTop} className={styles.scroll_button}>
+            Наверх
+          </button>
+        )}
       </div>
     </footer>
   );

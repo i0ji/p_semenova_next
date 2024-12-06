@@ -1,4 +1,5 @@
 @use '@/styles/mixin' as *;
+@use '@/styles/colors' as *;
 
 .footer {
   @include flex(space-between, column);
@@ -7,7 +8,7 @@
     width: 100%;
     margin: 0;
     height: 1px;
-    background-color: #51515180;
+    background-color: $brand_gray;
   }
 
   h4 {
@@ -28,7 +29,6 @@
   }
 
   &__contacts {
-
     border: 1px solid red;
 
     @include flex(space-between, row);
@@ -40,6 +40,30 @@
       @include flex('', column);
       width: 54%;
     }
+
+
+    .scroll_button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      display: block;
+      z-index: 1000;
+    }
+    
+    .scroll_button:hover {
+      background-color: #0056b3;
+    }
+    
+    .scroll_button {
+      display: block;
+    }
+
   }
 }
 
