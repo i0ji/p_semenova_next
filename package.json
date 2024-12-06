@@ -14,22 +14,22 @@
     "deploy": "gh-pages -d out -b gh-pages"
   },
   "dependencies": {
-    "next": "15.0.3",
-    "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "next": "15.0.4",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.9.1",
-    "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
+    "@types/node": "^22.10.1",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@types/react-slick": "^0.23.13",
-    "eslint": "^9.15.0",
-    "eslint-config-next": "15.0.3",
+    "eslint": "^9.16.0",
+    "eslint-config-next": "15.0.4",
     "gh-pages": "^6.2.0",
     "react-slick": "^0.30.2",
-    "sass": "^1.81.0",
-    "sass-loader": "^16.0.3",
+    "sass": "^1.82.0",
+    "sass-loader": "^16.0.4",
     "slick-carousel": "^1.8.1",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
