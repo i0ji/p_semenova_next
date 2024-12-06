@@ -1,5 +1,9 @@
+'use client';
+
 import React from 'react';
 import styles from './Footer.module.scss';
+
+import ScrollButton from '@/components/ScrollButton/ScrollButton';
 
 export default function Footer() {
   return (
@@ -50,6 +54,7 @@ export default function Footer() {
             </a>
           </p>
         </div>
+        <ScrollButton />
       </div>
     </footer>
   );

@@ -28,7 +28,11 @@
   }
 
   &__contacts {
+
+    border: 1px solid red;
+
     @include flex(space-between, row);
+    position: relative;
 
     margin: 30px 0 80px 0;
 
