@@ -15,7 +15,6 @@ export default function Slides(props: SlidesDataModel) {
     fade: true,
     infinite: true,
     speed: 500,
-    // lazyLoad: 'ondemand' as 'ondemand' | 'progressive',
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: true,

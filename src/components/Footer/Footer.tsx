@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Footer.module.scss';
+import scrollToSide from '@/services/scrollToSide';
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
@@ -20,13 +21,6 @@ export default function Footer() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
 
   return (
     <footer className={styles.footer}>
@@ -78,12 +72,12 @@ export default function Footer() {
         </div>
         {showButton && (
           <button
-            onClick={scrollToTop}
+            onClick={() => scrollToSide('top')}
             className={`${styles.scroll_button} ${
               showButton ? styles.show : ''
             }`}
           >
-            Наверх
+            ▲
           </button>
         )}
       </div>
