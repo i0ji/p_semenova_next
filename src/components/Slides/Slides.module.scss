@@ -55,7 +55,7 @@
     bottom: -40px;
     text-align: right;
 
-    li > button {
+    li > button::before {
       font-size: 25px;
     }
   }
