@@ -56,7 +56,7 @@ export default function Footer() {
         <h4>Контакты</h4>
         <div>
           <p>
-            <a href="tel:+79055386075">905 538 60 75</a>
+            <a href="tel:+79055386075">8 905 538 60 75</a>
           </p>
           <p>
             <a href="mailto:KaterinaSemenovaV@ya.ru">KaterinaSemenovaV@ya.ru</a>
@@ -77,7 +77,7 @@ export default function Footer() {
               showButton ? styles.show : ''
             }`}
           >
-            ▲
+            <strong>▲</strong>
           </button>
         )}
       </div>
