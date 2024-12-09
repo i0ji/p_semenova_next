@@ -37,7 +37,6 @@ export default function Slides(props: SlidesDataModel) {
               className={styles.slide__image}
               width={1600}
               height={900}
-              layout="responsive"
             />
             <button
               className={styles.slide__leftArrow}

@@ -10,7 +10,7 @@ export default function Footer() {
     const handleScroll = () => {
       const isBottom =
         window.innerHeight + window.scrollY >= document.body.offsetHeight;
-
+        console.log(window.innerHeight + window.scrollY)
       setShowButton(isBottom);
     };
 

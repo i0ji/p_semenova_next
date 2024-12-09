@@ -47,7 +47,7 @@
       bottom: 20px;
       right: 20px;
       padding: 10px 20px;
-      background-color: #007bff;
+      background-color: black;
       color: white;
       border: none;
       border-radius: 5px;
@@ -57,11 +57,7 @@
     }
     
     .scroll_button:hover {
-      background-color: #0056b3;
-    }
-    
-    .scroll_button {
-      display: block;
+      background-color: gray;
     }
 
   }
