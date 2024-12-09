@@ -55,9 +55,8 @@
     bottom: -40px;
     text-align: right;
 
-    li {
-      font-size: xx-large;
-      transform: scale(5.5);
+    li > button {
+      font-size: 25px;
     }
   }
 
