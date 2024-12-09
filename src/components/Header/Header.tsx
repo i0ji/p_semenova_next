@@ -12,9 +12,16 @@ export default function Header() {
     }
   };
 
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight + 600,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <header className={styles.header}>
-      <a href="#" onClick={() => handleScrollToId('about')}>
+      <a href="#" onClick={() => scrollToBottom()}>
         Катерина Семёнова
       </a>
     </header>

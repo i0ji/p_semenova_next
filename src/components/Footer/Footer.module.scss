@@ -29,37 +29,50 @@
   }
 
   &__contacts {
-    border: 1px solid red;
-
     @include flex(space-between, row);
     position: relative;
 
-    margin: 30px 0 80px 0;
+    margin: 30px 0 30px 0;
 
     div {
       @include flex('', column);
       width: 54%;
     }
 
-
     .scroll_button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      padding: 10px 20px;
+      position: absolute;
+      display: inline-block;
+
+      top: 0;
+      right: 0;
+      z-index: 1000;
+
+      height: 30%;
+
+      padding: 10px 15px;
+
       background-color: black;
       color: white;
       border: none;
       border-radius: 5px;
+
       cursor: pointer;
-      display: block;
-      z-index: 1000;
+      transition: all 0.5s ease;
     }
-    
+
     .scroll_button:hover {
       background-color: gray;
     }
 
+    .scroll_button.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll_button.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 

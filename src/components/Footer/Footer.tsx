@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Footer.module.scss';
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
+  const aboutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const isBottom =
         window.innerHeight + window.scrollY >= document.body.offsetHeight;
-        console.log(window.innerHeight + window.scrollY)
       setShowButton(isBottom);
     };
 
@@ -32,7 +32,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <hr />
 
-      <div id="about" className={styles.footer__about}>
+      <div className={styles.footer__about} ref={aboutRef}>
         <h4>Катерина</h4>
         <article>
           Графический дизайнер с&nbsp;6-летним опытом. На&nbsp;данный момент
@@ -77,7 +77,12 @@ export default function Footer() {
           </p>
         </div>
         {showButton && (
-          <button onClick={scrollToTop} className={styles.scroll_button}>
+          <button
+            onClick={scrollToTop}
+            className={`${styles.scroll_button} ${
+              showButton ? styles.show : ''
+            }`}
+          >
             Наверх
           </button>
         )}
