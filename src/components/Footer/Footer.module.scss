@@ -43,25 +43,31 @@
       position: absolute;
       display: block;
 
+      font-size: large;
+
       top: 0;
-      right: 0;
-      z-index: 1000;
+      right: 1rem;
+      z-index: 1000;  
 
-      height: 30%;
+      // padding: 5px 10px;
+      width: 30px;
+      height: 30px;
 
-      padding: 5px 10px;
+      background-color: transparent;
+      color: black;
 
-      background-color: black;
-      color: white;
-      border: none;
       border-radius: 5px;
+      border: 1px solid transparent;
 
       cursor: pointer;
-      transition: all 0.5s ease;
+      transition: all 1s ease;
+      transform-origin: center;
     }
 
     .scroll_button:hover {
-      background-color: gray;
+      border: 1px solid black;
+      font-size: x-large;
+  
     }
 
     .scroll_button.visible {
