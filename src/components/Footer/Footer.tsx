@@ -49,6 +49,12 @@ export default function Footer() {
           </a>
           .
         </article>
+        <button
+          onClick={() => scrollToSide('top')}
+          className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
+        >
+          ▲
+        </button>
       </div>
 
       <hr />
@@ -71,12 +77,7 @@ export default function Footer() {
           </p>
         </div>
 
-        <button
-          onClick={() => scrollToSide('top')}
-          className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
-        >
-          ▲
-        </button>
+
       </div>
     </footer>
   );
