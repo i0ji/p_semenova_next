@@ -1,18 +1,15 @@
 import { Header, Slides, Footer } from '@/components/index';
 import { SlideData } from 'public';
 import { SlidesDataModel } from '@/services/declarations';
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
-  console.log('v: 0.1.0 a');
-
-
-
+  console.log('v: 0.1.1 a');
 
   return (
     <>
       <Header />
-
       {SlideData.map((slides: SlidesDataModel) => (
         <Slides
           key={slides.id}
@@ -21,8 +18,6 @@ export default function Home() {
           lastSlide={slides.lastSlide}
         />
       ))}
-
-
       <Footer />
     </>
   );
