@@ -10,9 +10,8 @@ export default function Footer() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight;
-      setShowButton(isBottom);
+      const scrollThreshold = 5700;
+      setShowButton(window.scrollY > scrollThreshold);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -77,7 +76,7 @@ export default function Footer() {
               showButton ? styles.show : ''
             }`}
           >
-            <strong>▲</strong>
+            ▲
           </button>
         )}
       </div>
