@@ -8,4 +8,4 @@ export const NoraQuizSlides = [
 ];
 
 export const NoraQuizDescription =
-  'ТРЦ Нора  ——  оформление игры «Квиз» —— 2022';
+  'ТРЦ Нора - оформление игры «Квиз» — 2022';

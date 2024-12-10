@@ -10,4 +10,4 @@ export const PatternSlides = [
 ];
 
 export const PatternDescription =
-  'КТК —— Корпоративный фирменный стиль —— 2023';
+  'КТК - Корпоративный фирменный стиль — 2023';

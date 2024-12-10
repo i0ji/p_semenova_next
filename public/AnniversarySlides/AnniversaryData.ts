@@ -5,4 +5,4 @@ export const AnniversarySlides = [
   { id: 3, img: './AnniversarySlides/a4.webp' }
 ];
 
-export const AnniversaryDescription = `Бассейн «Чайка» —— оформление к\u00A065-летию бассейна —— 2022`;
+export const AnniversaryDescription = `Бассейн «Чайка» - оформление к\u00A065-летию бассейна — 2022`;
