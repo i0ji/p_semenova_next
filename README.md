@@ -38,6 +38,8 @@ After about <b>56(!SIC)</b> deploys found out how to set next.conifg+nextjs.yml 
 I have working styles and logic, although some features like fonts and library styles don't work as well;
 <br><b>v: 0.1.5 a / d: 10.12.24<br></b> 
 Add 'scroll to top' button when rich lowest contacts block
+Set 
+Multiple style and logic touches
 <br>
 <br>
 <hr>

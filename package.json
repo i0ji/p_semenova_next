@@ -1,6 +1,6 @@
 {
   "name": "semenova_next",
-  "version": "0.1.1 a",
+  "version": "0.1.5 a",
   "private": true,
   "repository": {
     "type": "git",
@@ -11,11 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-<<<<<<< HEAD
     "deploy": "gh-pages -d out -b gh-pages"
-=======
-    "deploy": "gh-pages -d build --repo https://github.com/i0ji/p_katerina_semenova_next"
->>>>>>> feature/slide_style
   },
   "dependencies": {
     "next": "15.0.4",
