@@ -6,4 +6,4 @@ export const TsumSlides = [
   { id: 41, img: './TsumSlides/t5.webp' }
 ];
 
-export const TsumDescription = 'ТЦ ЦУМ —— Реклама фуд-корта —— 2023';
+export const TsumDescription = 'ТЦ ЦУМ — Реклама фуд—корта — 2023';

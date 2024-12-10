@@ -6,7 +6,6 @@ import styles from './Slides.module.scss';
 import Image from 'next/image';
 import { SlidesDataModel } from '@/services/declarations';
 
-
 export default function Slides(props: SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
 
