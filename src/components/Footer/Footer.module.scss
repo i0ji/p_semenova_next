@@ -1,6 +1,5 @@
 @use '@/styles/mixin' as *;
 @use '@/styles/colors' as *;
-
 .footer {
   @include flex(space-between, column);
 
@@ -13,14 +12,11 @@
 
   h4 {
     font-weight: normal;
-    height: 1px;
   }
 
   &__about {
     @include flex(space-between, row);
-
     margin: 30px 0;
-
     white-space: pre-line;
 
     article {
@@ -31,8 +27,7 @@
   &__contacts {
     @include flex(space-between, row);
     position: relative;
-
-    margin: 30px 0 30px 0;
+    margin: 30px 0;
 
     div {
       @include flex('', column);
@@ -41,72 +36,36 @@
 
     .scroll_button {
       position: absolute;
-      display: block;
+      top: 0.5rem;
+      right: 0.5rem;
 
-      font-size: large;
-
-      top: 0;
-      right: 1rem;
-      z-index: 1000;  
-
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
 
       background-color: transparent;
       color: black;
 
-      border-radius: 5px;
       border: 1px solid transparent;
+      border-radius: 10%;
 
+      font-size: 1.5rem;
+      font-weight: bold;
       cursor: pointer;
-      transition: all .5s ease;
-      transform-origin: center;
-    }
 
-    .scroll_button:hover {
-      border: 1px solid black;
-      font-size: x-large;
-  
-    }
-
-    .scroll_button.visible {
-      opacity: 1;
-      visibility: visible;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
     }
 
     .scroll_button.show {
       opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-@media (max-width: 1200px) {
-  .footer {
-    .footer__about {
-      h4 {
-        display: none;
-      }
-
-      article {
-        width: 100%;
-      }
+      pointer-events: auto;
+      transform: scale(1);
     }
 
-    .footer__contacts {
-      h4 {
-        display: none;
-      }
-
-      div {
-        width: 100%;
-      }
+    .scroll_button:hover {
+      border: 1px solid black;
     }
-  }
-}
-
-@media (max-width: 700px) {
-  .footer__contacts {
-    margin: 30px 0;
   }
 }
