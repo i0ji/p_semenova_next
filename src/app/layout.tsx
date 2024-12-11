@@ -2,9 +2,12 @@ import type { Metadata } from 'next';
 import './globals.scss';
 
 export const metadata: Metadata = {
-  title: 'Katerina Semenova - graphic designer'
+  title: 'Katerina Semenova - graphic designer',
+  description: 'Katerina Semenova',
+  icons: {
+    icon: '/favicon.ico'
+  }
 };
-
 
 export default function RootLayout({
   children
