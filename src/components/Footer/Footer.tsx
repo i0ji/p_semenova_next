@@ -86,11 +86,6 @@ export default function Footer() {
             </button>
           )}
         </div>
-<<<<<<< HEAD
-=======
-
-
->>>>>>> develop
       </div>
     </footer>
   );
