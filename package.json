@@ -14,17 +14,17 @@
     "deploy": "gh-pages -d out -b gh-pages"
   },
   "dependencies": {
-    "next": "15.0.4",
+    "next": "15.1.0",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
-    "@types/node": "^22.10.1",
+    "@types/node": "^22.10.2",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9.16.0",
-    "eslint-config-next": "15.0.4",
+    "eslint-config-next": "15.1.0",
     "gh-pages": "^6.2.0",
     "react-slick": "^0.30.2",
     "sass": "^1.82.0",
