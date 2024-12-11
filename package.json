@@ -1,6 +1,6 @@
 {
   "name": "semenova_next",
-  "version": "0.1.1 a",
+  "version": "0.1.5 a",
   "private": true,
   "repository": {
     "type": "git",
@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "@types/node": "^22.10.1",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9.16.0",
     "eslint-config-next": "15.0.4",

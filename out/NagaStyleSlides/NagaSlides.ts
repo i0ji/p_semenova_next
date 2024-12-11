@@ -9,4 +9,4 @@ export const NagaStyleSlides = [
   { id: 11, img: './NagaStyleSlides/m8.webp' }
 ];
 
-export const NagaStyleDescription = 'БЦ «Нагатинский» —— айдентика —— 2022';
+export const NagaStyleDescription = 'БЦ «Нагатинский» — айдентика — 2022';

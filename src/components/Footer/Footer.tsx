@@ -6,27 +6,27 @@ import scrollToSide from '@/services/scrollToSide';
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
-  const aboutRef = useRef(null);
+  const contactsRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const isBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight;
-      setShowButton(isBottom);
+      const scrollThreshold = 75;
+      const isNearBottom =
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - scrollThreshold;
+
+      setShowButton(isNearBottom);
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <footer className={styles.footer}>
       <hr />
 
-      <div className={styles.footer__about} ref={aboutRef}>
+      <div className={styles.footer__about}>
         <h4>Катерина</h4>
         <article>
           Графический дизайнер с&nbsp;6-летним опытом. На&nbsp;данный момент
@@ -49,10 +49,16 @@ export default function Footer() {
           </a>
           .
         </article>
+        <button
+          onClick={() => scrollToSide('top')}
+          className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
+        >
+          ▲
+        </button>
       </div>
 
       <hr />
-      <div className={styles.footer__contacts}>
+      <div className={styles.footer__contacts} ref={contactsRef}>
         <h4>Контакты</h4>
         <div>
           <p>
@@ -80,6 +86,11 @@ export default function Footer() {
             </button>
           )}
         </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> develop
       </div>
     </footer>
   );
