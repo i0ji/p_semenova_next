@@ -75,16 +75,6 @@ export default function Footer() {
               Behance/KateSemenova
             </a>
           </p>
-          {showButton && (
-            <button
-              onClick={() => scrollToSide('top')}
-              className={`${styles.scroll_button} ${
-                showButton ? styles.show : ''
-              }`}
-            >
-              <strong>▲</strong>
-            </button>
-          )}
         </div>
       </div>
     </footer>
