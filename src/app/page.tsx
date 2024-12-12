@@ -6,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
   console.log('v: 0.2.0');
-  console.log('skeleton loading');
+  console.log('skeleton loading test#1');
   
   return (
     <>
