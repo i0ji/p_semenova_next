@@ -8,13 +8,13 @@ Table of contents:
 3. known issues
 
 <hr>
-** 1. **<br>
+## 1.<br>
 1.1 Next.JS, SASS, TS;<br>
 1.2 Choose React-slick to implement slider: it has fade in/out, dots; 
 <br>
 <br>
 <hr>
-** 2. **<br>
+## 2.<br>
 <b>v: 0.0.1 / d: 29.10.24</b> <br>    
 project/repo init, git-flow init, first commit,
 <br>
@@ -36,23 +36,20 @@ Setting styles and small logic touches;
 Start GH Action settings and met some deploy issues with paths;
 After about <b>56(!SIC)</b> deploys found out how to set next.conifg+nextjs.yml for deploying static app;
 I have working styles and logic, although some features like fonts and library styles don't work as well;
-<<<<<<< HEAD
-<b>v: 0.1.5 a / d: 10.12.24<br></b> 
-Add 'scroll to top' button when rich lowest contacts block
-=======
 <br><b>v: 0.1.5 a / d: 10.12.24<br></b> 
-Add 'scroll to top' button when rich lowest contacts block
-Set 
-Multiple style and logic touches
+Add 'scroll to top' button when rich lowest contacts block;
+Multiple style and logic touches;<br>
+<b>v: 0.1.6 a / d: 11.12.24<br></b> 
+Set up font and favico paths using metadata object in layout.tsx;<br>
+<b>v: 0.2.0 / d: 12.12.24<br></b> 
+Start skeleton loading implementation;
 <br>
 <br>
 <hr>
-** 3. **<br>
-[&nbsp;&nbsp;] font path issue
+## 3.<br>
+[&nbsp;&nbsp;] still have trouble with build/dev paths and aliases;
 
 
->>>>>>> develop
 
-<b>v: 0.1.6 a / d: 10.12.24<br></b> 
-Start skeletn loading implementation
+
 
