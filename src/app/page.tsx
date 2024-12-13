@@ -5,9 +5,9 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 export default function Home() {
-  console.log('v: 0.1.6 a');
+  console.log('v: 0.3.0');
   console.log('font/favico path issues');
-  
+
   return (
     <>
       <Header />

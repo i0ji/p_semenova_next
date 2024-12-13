@@ -1,6 +1,6 @@
 {
   "name": "semenova_next",
-  "version": "0.1.5 a",
+  "version": "0.3.0",
   "private": true,
   "repository": {
     "type": "git",
@@ -10,8 +10,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "gh-pages -d out -b gh-pages"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "15.1.0",
@@ -27,7 +26,7 @@
     "eslint-config-next": "15.1.0",
     "gh-pages": "^6.2.0",
     "react-slick": "^0.30.2",
-    "sass": "^1.82.0",
+    "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "slick-carousel": "^1.8.1",
     "typescript": "^5.7.2"
