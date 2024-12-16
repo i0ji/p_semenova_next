@@ -22,7 +22,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "public": ["./public/"],
-      "components": ["./src/app/components/"],
+      "components": ["./src/app/components/"]
     }
   },
   "include": [
@@ -30,6 +30,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "next-env.d.ts",
+    "services/**/*.d.ts",
     "build/types/**/*.ts"
   ],
   "exclude": ["node_modules"]

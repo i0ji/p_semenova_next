@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  basePath: isProd ? '/p_katerina_semenova_next' : '',
+  basePath: '',
   assetPrefix: '.',
   webpack: (config) => {
     config.resolve.alias['@styles'] = './src/styles/*';

@@ -1,13 +1,25 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
 import Slider from 'react-slick';
 import styles from './Slides.module.scss';
-import Image from 'next/image';
-import { SlidesDataModel } from '@/services/declarations';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
-export default function Slides(props: SlidesDataModel) {
+export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
+
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (typeof props.slides[0].img === 'string') {
+      const img = new globalThis.Image();
+      img.src = props.slides[0].img;
+      img.onload = () => setIsLoaded(true);
+    }
+    return () => {};
+  }, []);
 
   const settings = {
     dots: true,
@@ -28,22 +40,35 @@ export default function Slides(props: SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            <Image
-              id="image"
-              src={slide.img}
-              alt={props.description}
-              className={styles.slide__image}
-              width={1600}
-              height={900}
-            />
-            <button
-              className={styles.slide__leftArrow}
-              onClick={() => sliderRef.current?.slickPrev()}
-            />
-            <button
-              className={styles.slide__rightArrow}
-              onClick={() => sliderRef.current?.slickNext()}
-            />
+            {isLoaded ? (
+              <Image
+                id="image"
+                src={slide.img}
+                alt={props.description}
+                className={styles.slide__image}
+                width={1600}
+                height={900}
+              />
+            ) : (
+              <Skeleton
+                height={900}
+                width={'100%'}
+                style={{ borderRadius: 5 }}
+              />
+            )}
+            {isLoaded && (
+              <>
+                {' '}
+                <button
+                  className={styles.slide__leftArrow}
+                  onClick={() => sliderRef.current?.slickPrev()}
+                />
+                <button
+                  className={styles.slide__rightArrow}
+                  onClick={() => sliderRef.current?.slickNext()}
+                />
+              </>
+            )}
           </div>
         ))}
       </Slider>

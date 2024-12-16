@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './Footer.module.scss';
 import scrollToSide from '@/services/scrollToSide';
 
@@ -76,8 +76,6 @@ export default function Footer() {
             </a>
           </p>
         </div>
-
-
       </div>
     </footer>
   );
