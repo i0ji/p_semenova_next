@@ -51,16 +51,25 @@ export default function Slides(props: SlidesDataModel) {
                 height={900}
               />
             ) : (
-              <Skeleton height={900} width={1600} style={{ borderRadius: 5 }} />
+              <Skeleton
+                height={900}
+                width={'100%'}
+                style={{ borderRadius: 5 }}
+              />
             )}
-            <button
-              className={styles.slide__leftArrow}
-              onClick={() => sliderRef.current?.slickPrev()}
-            />
-            <button
-              className={styles.slide__rightArrow}
-              onClick={() => sliderRef.current?.slickNext()}
-            />
+            {isLoaded && (
+              <>
+                {' '}
+                <button
+                  className={styles.slide__leftArrow}
+                  onClick={() => sliderRef.current?.slickPrev()}
+                />
+                <button
+                  className={styles.slide__rightArrow}
+                  onClick={() => sliderRef.current?.slickNext()}
+                />
+              </>
+            )}
           </div>
         ))}
       </Slider>
