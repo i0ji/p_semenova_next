@@ -1,6 +1,8 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
+import "./slick.css";
+import "./slick-theme.css";
 import Image from 'next/image';
 import Slider from 'react-slick';
 import styles from './Slides.module.scss';
@@ -18,7 +20,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       img.onload = () => setIsLoaded(true);
     }
     return () => {};
-  }, []);
+  }, [props.slides]);
 
   const settings = {
     dots: true,
