@@ -4,13 +4,14 @@
 Table of contents:
 
 1. Stack/libruary usage
-2. Commit decryption/progress
+2. Commit short history descryption/progress
 3. known issues
 
 <hr>
 ## 1.<br>
 1.1 Next.JS, SASS, TS;<br>
 1.2 Choose React-slick to implement slider: it has fade in/out, dots; 
+1.3 Next 15^, React 19^ (small compatibility issue), React-dom 19^ compatibility,TS, SASS, Slick-caroulse, react-slick
 <br>
 <br>
 <hr>
@@ -43,12 +44,15 @@ Multiple style and logic touches;<br>
 Set up font and favico paths using metadata object in layout.tsx;<br>
 <b>v: 0.2.0 / d: 12.12.24<br></b> 
 Start skeleton loading implementation;
+<b>v: 0.2.0 / d: 17.12.24<br></b> 
+Trying to add Yandex.Metrika script into <Head><br>
+
 <br>
 <br>
 <hr>
 ## 3.<br>
-[X] ~~still have trouble with build/dev paths and aliases;~~ Still have to change it manually when deploy to Pages or to prod
-[&nbsp;&nbsp;] New one: missing react-slick lib fonts, which i do not use at all
+[X] ~~still have trouble with build/dev paths and aliases;~~ Still have to change it manually when deploy to Pages or to prod;
+[X] New one: missing react-slick lib fonts, which i do not use at all///Get rid of console warning by removing Slick font-face settings from final output build. Still have to find the solution;
 
 
 
