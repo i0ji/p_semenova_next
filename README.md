@@ -47,8 +47,8 @@ Start skeleton loading implementation;
 <br>
 <hr>
 ## 3.<br>
-[&nbsp;&nbsp;] still have trouble with build/dev paths and aliases;
-
+[X] ~~still have trouble with build/dev paths and aliases;~~ Still have to change it manually when deploy to Pages or to prod
+[&nbsp;&nbsp;] New one: missing react-slick lib fonts, which i do not use at all
 
 
 

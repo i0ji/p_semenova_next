@@ -1,6 +1,6 @@
 import { Header, Slides, Footer } from '@/components/index';
 import { SlideData } from 'public';
-import { SlidesDataModel } from '@/services/declarations';
+
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      {SlideData.map((slides: SlidesDataModel) => (
+      {SlideData.map((slides: SlideModelNamespace.SlidesDataModel) => (
         <Slides
           key={slides.id}
           slides={slides.slides}
