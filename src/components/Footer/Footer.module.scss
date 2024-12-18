@@ -77,6 +77,11 @@
       pointer-events: auto;
       transform: scale(1);
     }
+
+    .scroll_button:hover {
+      filter: blur(.5px);
+      opacity: .97;
+    }
   }
 }
 
