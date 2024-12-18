@@ -22,7 +22,7 @@ export default function Footer() {
         if (!timer) {
           const newTimer = setTimeout(() => {
             setShowButton(true);
-          }, 1000);
+          }, 500);
 
           setTimer(newTimer);
         }
