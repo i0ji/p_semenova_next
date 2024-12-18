@@ -1,4 +1,5 @@
 export default function scrollToSide(direction: string) {
+  if (typeof window === 'undefined') return;
   switch (direction) {
     case 'top':
       window.scrollTo({

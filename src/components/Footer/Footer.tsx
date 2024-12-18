@@ -6,9 +6,11 @@ import scrollToSide from '@/services/scrollToSide';
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const contactsRef = useRef(null);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       const scrollThreshold = 5;
       const isBottomReached =
@@ -20,6 +22,10 @@ export default function Footer() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <footer className={styles.footer}>
