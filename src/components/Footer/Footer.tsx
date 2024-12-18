@@ -6,9 +6,6 @@ import scrollToSide from '@/services/scrollToSide';
 
 export default function Footer() {
   const [showButton, setShowButton] = useState(false);
-  const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | null>(
-    null
-  );
   const contactsRef = useRef(null);
 
   useEffect(() => {
@@ -17,33 +14,12 @@ export default function Footer() {
       const isBottomReached =
         window.innerHeight + window.scrollY >=
         document.body.offsetHeight - scrollThreshold;
-
-      if (isBottomReached) {
-        if (!timer) {
-          const newTimer = setTimeout(() => {
-            setShowButton(true);
-          }, 500);
-
-          setTimer(newTimer);
-        }
-      } else {
-        if (timer) {
-          clearTimeout(timer);
-          setTimer(null);
-        }
-        setShowButton(false);
-      }
+      setShowButton(isBottomReached);
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (timer) {
-        clearTimeout(timer);
-      }
-    };
-  }, [timer]);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <footer className={styles.footer}>

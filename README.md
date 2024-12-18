@@ -49,6 +49,8 @@ Trying to add Yandex.Metrika script into <Head><br>
 Get rid of font path issues by taking lib *.css files into component and adding them only where they should be<br>
 Add Yandex.Metrika script into build index.html. Automatisation to go.
 Next won`t build up with script errors. 
+<b>v: 0.2.0 / d: 17.12.24<br></b> 
+Scroll button customizing: change arrow type and add timeout to display, but refused to implement in prod.
 
 <br>
 <br>
