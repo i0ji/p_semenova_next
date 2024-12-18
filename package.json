@@ -15,8 +15,7 @@
   "dependencies": {
     "next": "15.1.1",
     "react": "19.0.0",
-    "react-dom": "19.0.0",
-    "slick-carousel": "^1.8.1"
+    "react-dom": "19.0.0"
   },
   "ignore": [
     "/temp/"
@@ -34,6 +33,7 @@
     "react-slick": "^0.30.3",
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
+    "slick-carousel": "^1.8.1",
     "typescript": "^5.7.2"
   }
 }

@@ -1,21 +1,18 @@
 <h1>Reworked <a href="https://katerinasemenova.ru"> KaterinaSemenova</a> site using Next.JS, new libs, Turbopack</h1>
 
-<hr>
-Table of contents:
-
-1. Stack/libruary usage
-2. Commit short history descryption/progress
-3. known issues
+<h3>Table of contents:</h3>
+1. Stack/libruary usage<br>
+2. Commit short history descryption/progress<br>
+3. Known issues<br>
 
 <hr>
-## 1.<br>
+<h3> 1.</h3>
 1.1 Next.JS, SASS, TS;<br>
-1.2 Choose React-slick to implement slider: it has fade in/out, dots; 
-1.3 Next 15^, React 19^ (small compatibility issue), React-dom 19^ compatibility,TS, SASS, Slick-caroulse, react-slick
-<br>
+1.2 Choose React-slick to implement slider: it has fade in/out, dots; <br>
+1.3 Next 15^, React 19^ (small compatibility issue), React-dom 19^ (small compatibility issue), TS, SASS, slick-caroulse, react-slick, react-loading-skeleton
 <br>
 <hr>
-## 2.<br>
+<h3> 2.</h3>
 <b>v: 0.0.1 / d: 29.10.24</b> <br>    
 project/repo init, git-flow init, first commit,
 <br>
@@ -48,15 +45,16 @@ Start skeleton loading implementation;
 Trying to add Yandex.Metrika script into <Head><br>
 Get rid of font path issues by taking lib *.css files into component and adding them only where they should be<br>
 Add Yandex.Metrika script into build index.html. Automatisation to go.
-Next won`t build up with script errors. 
-<b>v: 0.2.0 / d: 17.12.24<br></b> 
+Next won`t build up with script errors. <br>
+<b>v: 0.2.1 / d: 18.12.24<br></b> 
 Scroll button customizing: change arrow type and add timeout to display, but refused to implement in prod.<br>
 Got an issue with SSR/Client render and build diffs; Solved it by adding a `window` type check
 
 <br>
-<br>
 <hr>
-## 3.<br>
-[X] ~~still have trouble with build/dev paths and aliases; Still have to change it manually when deploy to Pages or to prod;~~
-[X] ~~New one: missing react-slick lib fonts, which i do not use at all///Get rid of console warning by removing Slick font-face settings from final output build. Still have to find the solution;~~
-[X] Yandex.Analytics
+<h3> 3.</h3>
+[X] Still have trouble with build/dev paths and aliases; Still have to change it manually when deploy to Pages or to prod;<br>
+[X] New one: missing react-slick lib fonts, which i do not use at all///Get rid of console warning by removing Slick font-face settings from final output build. Still have to find the solution;<br>
+[X] Yandex.Analytics<br>
+[&nbsp;&nbsp;] Implement DB with phpAdminPanel - to go<br>
+[&nbsp;&nbsp;] Skeleton loading - still can`t figure out if it works correctly or not - to go<br>
