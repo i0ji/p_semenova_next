@@ -19,19 +19,38 @@
 
   &__about {
     @include flex(space-between, row);
-    position: relative;
 
     margin: 30px 0;
-    
+
     white-space: pre-line;
 
     article {
       width: 54%;
     }
+  }
+
+  &__contacts {
+    @include flex(space-between, row);
+    position: relative;
+
+    margin: 30px 0;
+
+    h4 {
+      order: 1;
+    }
+
+    div {
+      order: 2;
+
+      @include flex('', column);
+      width: 54%;
+    }
 
     .scroll_button {
+      order: 3;
+
       position: absolute;
-      bottom: -1.5rem;
+      bottom: 0;
       right: 0;
 
       width: 40px;
@@ -57,17 +76,6 @@
       opacity: 1;
       pointer-events: auto;
       transform: scale(1);
-    }
-  }
-
-  &__contacts {
-    @include flex(space-between, row);
-
-    margin: 30px 0;
-
-    div {
-      @include flex('', column);
-      width: 54%;
     }
   }
 }

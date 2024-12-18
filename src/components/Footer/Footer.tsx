@@ -10,11 +10,12 @@ export default function Footer() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = 75;
+      const scrollThreshold = 15;
       const isNearBottom =
         window.innerHeight + window.scrollY >=
         document.body.offsetHeight - scrollThreshold;
-
+      //CONSOLE
+      console.log('isNearBottom: ', isNearBottom);
       setShowButton(isNearBottom);
     };
 
@@ -49,12 +50,6 @@ export default function Footer() {
           </a>
           .
         </article>
-        <button
-          onClick={() => scrollToSide('top')}
-          className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
-        >
-          ↑
-        </button>
       </div>
 
       <hr />
@@ -76,6 +71,12 @@ export default function Footer() {
             </a>
           </p>
         </div>
+        <button
+          onClick={() => scrollToSide('top')}
+          className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
+        >
+          ↑
+        </button>
       </div>
     </footer>
   );
