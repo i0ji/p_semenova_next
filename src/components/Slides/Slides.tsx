@@ -1,12 +1,13 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import "./slick.css";
-import "./slick-theme.css";
+
+import Skeleton from 'react-loading-skeleton';
 import Image from 'next/image';
 import Slider from 'react-slick';
+
+import './slick.css';
 import styles from './Slides.module.scss';
-import Skeleton from 'react-loading-skeleton';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
@@ -49,6 +50,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 className={styles.slide__image}
                 width={1600}
                 height={900}
+                priority
               />
             ) : (
               <Skeleton
