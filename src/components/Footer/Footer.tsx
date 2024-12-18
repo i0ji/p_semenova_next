@@ -53,7 +53,7 @@ export default function Footer() {
           onClick={() => scrollToSide('top')}
           className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
         >
-          ▲
+          ↑
         </button>
       </div>
 
