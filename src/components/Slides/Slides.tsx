@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from './Slides.module.scss';
 
@@ -8,15 +8,15 @@ import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
+    // slideChanged(slider) {
+    //   setCurrentSlide(slider.track.details.rel);
+    // },
     created() {
-      setLoaded(true);
+      setLoaded(!loaded);
     },
     loop: true
   });
