@@ -10,7 +10,7 @@ import 'keen-slider/keen-slider.min.css';
 function Arrow(props: {
   disabled?: boolean;
   left?: boolean;
-  onClick: (e: any) => void;
+  onClick: (e: React.MouseEvent<SVGSVGElement>) => void;
 }) {
   const disabled = props.disabled ? ' arrow--disabled' : '';
   return (
@@ -66,16 +66,18 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
           <>
             <Arrow
               left
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.prev()
-              }
+              onClick={(e: React.MouseEvent<SVGSVGElement>) => {
+                e.stopPropagation();
+                instanceRef.current?.prev();
+              }}
               disabled={currentSlide === 0}
             />
 
             <Arrow
-              onClick={(e: any) =>
-                e.stopPropagation() || instanceRef.current?.next()
-              }
+              onClick={(e: React.MouseEvent<SVGSVGElement>) => {
+                e.stopPropagation();
+                instanceRef.current?.next();
+              }}
             />
           </>
         )}
