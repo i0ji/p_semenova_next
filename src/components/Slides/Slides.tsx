@@ -1,36 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './Slides.module.scss';
 
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
-
-function Arrow(props: {
-  disabled?: boolean;
-  left?: boolean;
-  onClick: (e: React.MouseEvent<SVGSVGElement>) => void;
-}) {
-  const disabled = props.disabled ? ' arrow--disabled' : '';
-  return (
-    <svg
-      onClick={props.onClick}
-      className={`${styles.arrow} ${
-        props.left ? styles.arrowLeft : styles.arrowRight
-      } ${disabled}`}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-    >
-      {props.left && (
-        <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z" />
-      )}
-      {!props.left && (
-        <path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z" />
-      )}
-    </svg>
-  );
-}
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -45,6 +20,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     },
     loop: true
   });
+
   return (
     <section className={styles.slides}>
       <div className={styles.slidesWrapper}>
@@ -61,26 +37,22 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
               />
             </div>
           ))}
-        </div>
-        {loaded && instanceRef.current && (
-          <>
-            <Arrow
-              left
-              onClick={(e: React.MouseEvent<SVGSVGElement>) => {
-                e.stopPropagation();
-                instanceRef.current?.prev();
-              }}
-              disabled={currentSlide === 0}
-            />
 
-            <Arrow
-              onClick={(e: React.MouseEvent<SVGSVGElement>) => {
-                e.stopPropagation();
-                instanceRef.current?.next();
-              }}
-            />
-          </>
-        )}
+          <button
+            className={styles.lefButton}
+            onClick={(e) => {
+              e.stopPropagation();
+              instanceRef.current?.prev();
+            }}
+          />
+          <button
+            className={styles.rightButton}
+            onClick={(e) => {
+              e.stopPropagation();
+              instanceRef.current?.next();
+            }}
+          />
+        </div>
       </div>
       <p>{props.description}</p>
     </section>
