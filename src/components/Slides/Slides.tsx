@@ -1,16 +1,15 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-import "./slick.css";
-import "./slick-theme.css";
+import { useState, useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import './slick.css';
+import './slick-theme.css';
 import Image from 'next/image';
-import Slider from 'react-slick';
 import styles from './Slides.module.scss';
 import Skeleton from 'react-loading-skeleton';
+import 'react-multi-carousel/lib/styles.css';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
-  const sliderRef = useRef<Slider>(null);
-
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -22,58 +21,83 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     return () => {};
   }, [props.slides]);
 
-  const settings = {
-    dots: true,
-    fade: true,
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 1
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+
+  // const slideSettings = {
+  //   swipeable: false,
+  //   draggable: false,
+  //   showDots: true,
+  //   responsive: responsive,
+  //   ssr: true,
+  //   infinite: true,
+  //   // autoPlay={this.props.deviceType !== "mobile" ? true : false}
+  //   autoPlaySpeed: 1000,
+  //   keyBoardControl: true,
+  //   // customTransition="all .5"
+  //   transitionDuration: 500,
+  //   containerClass: 'carousel-container',
+  //   // removeArrowOnDeviceType:{["tablet", "mobile"]},
+  //   // deviceType=this.props.deviceType,
+  //   dotListClass: 'custom-dot-list-style',
+  //   itemClass: 'carousel-item-padding-40-px'
+  // };
+
+  const slideSettings = {
+    autoPlay: true,
+    showDots: true,
+    ssr: true,
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    waitForAnimate: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false
+    autoPlay: true,
   };
 
   return (
     <section className={styles.slides}>
-      <Slider ref={sliderRef} {...settings}>
+      <Carousel {...slideSettings} responsive={responsive}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            {isLoaded ? (
-              <Image
-                id="image"
-                src={slide.img}
-                alt={props.description}
-                className={styles.slide__image}
-                width={1600}
-                height={900}
-              />
-            ) : (
-              <Skeleton
-                height={900}
-                width={'100%'}
-                style={{ borderRadius: 5 }}
-              />
-            )}
-            {isLoaded && (
-              <>
-                {' '}
-                <button
-                  className={styles.slide__leftArrow}
-                  onClick={() => sliderRef.current?.slickPrev()}
-                />
-                <button
-                  className={styles.slide__rightArrow}
-                  onClick={() => sliderRef.current?.slickNext()}
-                />
-              </>
-            )}
+            <Image
+              id="image"
+              style={{ padding: '0 10' }}
+              src={slide.img}
+              alt={props.description}
+              className={styles.slide__image}
+              width={1600}
+              height={900}
+            />
           </div>
         ))}
-      </Slider>
+      </Carousel>
       <p>{props.description}</p>
     </section>
   );
 }
+
+// {/* {isLoaded && (
+//   <>
+//     <button
+//       className={styles.slide__leftArrow}
+//       onClick={() => sliderRef.current?.slickPrev()}
+//     />
+//     <button
+//       className={styles.slide__rightArrow}
+//       onClick={() => sliderRef.current?.slickNext()}
+//     />
+//   </>
+// )} */}
