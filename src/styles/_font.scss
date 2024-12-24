@@ -1,10 +1,17 @@
 @font-face {
   font-family: 'CenturyGothic';
-  src: url('/public/centurygothic.woff') format('woff');
+  src: url('/centurygothic.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
-body {
+@font-face {
+  font-family: 'slick';
+  src: none;
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
   font-family: 'CenturyGothic', sans-serif;
 }

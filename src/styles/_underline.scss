@@ -1,10 +1,13 @@
 a {
   position: relative;
   display: inline-block;
+
+  color: black;
+
+  font-weight: normal;
+
   cursor: pointer;
   text-decoration: none;
-  color: black;
-  font-weight: normal;
 }
 
 a:visited {
@@ -12,19 +15,20 @@ a:visited {
 }
 
 a:after {
+  position: absolute;
   display: block;
-  content: '';
-  background-color: black;
   height: 2px;
   width: 0;
   left: 50%;
-  position: absolute;
+
+  background-color: black;
+
   -webkit-transition: width 0.3s ease-in-out;
   transition: width 0.3s ease-in-out;
   transform: translateX(-50%);
+
+  content: '';
 }
-//TODO
-//first and last lines are thiner
 
 a:hover:after,
 a:focus:after {

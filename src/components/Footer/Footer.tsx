@@ -1,12 +1,37 @@
-import React from 'react';
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
 import styles from './Footer.module.scss';
+import scrollToSide from '@/services/scrollToSide';
 
 export default function Footer() {
+  const [showButton, setShowButton] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+  const contactsRef = useRef(null);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const handleScroll = () => {
+      const scrollThreshold = 5;
+      const isBottomReached =
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - scrollThreshold;
+      setShowButton(isBottomReached);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <footer className={styles.footer}>
       <hr />
 
-      <div id="about" className={styles.footer__about}>
+      <div className={styles.footer__about}>
         <h4>Катерина</h4>
         <article>
           Графический дизайнер с&nbsp;6-летним опытом. На&nbsp;данный момент
@@ -32,11 +57,11 @@ export default function Footer() {
       </div>
 
       <hr />
-      <div className={styles.footer__contacts}>
+      <div className={styles.footer__contacts} ref={contactsRef}>
         <h4>Контакты</h4>
         <div>
           <p>
-            <a href="tel:+79055386075">905 538 60 75</a>
+            <a href="tel:+79055386075">8 905 538 60 75</a>
           </p>
           <p>
             <a href="mailto:KaterinaSemenovaV@ya.ru">KaterinaSemenovaV@ya.ru</a>
@@ -50,6 +75,12 @@ export default function Footer() {
             </a>
           </p>
         </div>
+        <button
+          onClick={() => scrollToSide('top')}
+          className={`${styles.scroll_button} ${showButton ? styles.show : ''}`}
+        >
+          ↑
+        </button>
       </div>
     </footer>
   );

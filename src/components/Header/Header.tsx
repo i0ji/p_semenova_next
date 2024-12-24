@@ -2,19 +2,12 @@
 
 import React from 'react';
 import styles from './Header.module.scss';
+import scrollToSide from '@/services/scrollToSide';
 
 export default function Header() {
-  const handleScrollToId = (id: string) => {
-    const element = document.getElementById(id);
-
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <header className={styles.header}>
-      <a href="#" onClick={() => handleScrollToId('about')}>
+      <a href="#" onClick={() => scrollToSide('bottom')}>
         Катерина Семёнова
       </a>
     </header>

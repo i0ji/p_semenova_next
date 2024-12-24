@@ -9,4 +9,4 @@ export const SeagullSlides = [
   { id: 36, img: './SeagullSlides/s8.webp' }
 ];
 
-export const SeagullDescription = 'Бассейн «Чайка» —— айдентика —— 2022';
+export const SeagullDescription = 'Бассейн «Чайка» — айдентика — 2022';

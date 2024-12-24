@@ -1,7 +1,5 @@
 import type { NextConfig } from 'next';
 
-const isProd = process.env.NODE_ENV === 'production';
-
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   output: 'export',
@@ -9,10 +7,21 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
-  basePath: isProd ? '/p_katerina_semenova_next' : '',
+  basePath: '',
   assetPrefix: '.',
   webpack: (config) => {
     config.resolve.alias['@styles'] = './src/styles/*';
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf|otf)$/,
+      use: {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]',
+          outputPath: 'fonts/',
+          publicPath: '/_next/static/fonts/'
+        }
+      }
+    });
     return config;
   }
 };
