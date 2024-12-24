@@ -48,7 +48,9 @@ Add Yandex.Metrika script into build index.html. Automatisation to go.
 Next won`t build up with script errors. <br>
 <b>v: 0.2.1 / d: 18.12.24<br></b> 
 Scroll button customizing: change arrow type and add timeout to display, but refused to implement in prod.<br>
-Got an issue with SSR/Client render and build diffs; Solved it by adding a `window` type check
+Got an issue with SSR/Client render and build diffs; Solved it by adding a `window` type check<br>
+<b>v: 0.2.2a / d: 24.12.24<br></b> 
+After multiple attempts and carousel libs decided to test react-multi-carousel;
 
 <br>
 <hr>
