@@ -8,6 +8,31 @@
       height: 100%;
       width: auto;
     }
+
+    .skeletonWrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0; // Цвет фона для скелетона
+    }
+
+    .slide__image {
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+
+    .imageVisible {
+      opacity: 1;
+    }
+
+    .imageHidden {
+      opacity: 0;
+    }
   }
 
   .lefButton,
@@ -49,45 +74,9 @@
     background: linear-gradient(90deg, transparent, black) transparent;
   }
 
-  .slidesWrapper {
-    position: relative;
-
-    .dot {
-      border: none;
-      width: 10px;
-      height: 10px;
-      background: #c5c5c5;
-      border-radius: 50%;
-      margin: 0 5px;
-      padding: 5px;
-      cursor: pointer;
-    }
-  
-    .dots {
-      display: flex;
-      padding: 10px 0;
-      justify-content: center;
-    }
-  
-    .dot:focus {
-      outline: none;
-    }
-  
-    .dot.active {
-      background: #000;
-    }
-  
-    .dots {
-      display: flex;
-      padding: 10px 0;
-      justify-content: center;
-    }
-    p {
-      margin-top: 15px;
-    }
+  p {
+    margin-top: 15px;
   }
-
-  
 }
 
 @media (max-width: 840px) {
