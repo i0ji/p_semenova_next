@@ -28,9 +28,11 @@
     "eslint-config-next": "15.1.2",
     "file-loader": "^6.2.0",
     "gh-pages": "^6.2.0",
+    "react-id-swiper": "^4.0.0",
     "react-loading-skeleton": "^3.5.0",
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
+    "swiper": "^11.1.15",
     "typescript": "^5.7.2"
   }
 }

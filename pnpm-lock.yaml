@@ -39,6 +39,9 @@ importers:
       gh-pages:
         specifier: ^6.2.0
         version: 6.2.0
+      react-id-swiper:
+        specifier: ^4.0.0
+        version: 4.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(swiper@11.1.15)
       react-loading-skeleton:
         specifier: ^3.5.0
         version: 3.5.0(react@19.0.0)
@@ -48,6 +51,9 @@ importers:
       sass-loader:
         specifier: ^16.0.4
         version: 16.0.4(sass@1.83.0)(webpack@5.97.1)
+      swiper:
+        specifier: ^11.1.15
+        version: 11.1.15
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -1539,6 +1545,14 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
+  react-id-swiper@4.0.0:
+    resolution: {integrity: sha512-BFY8VQYgc1ECkT1Ek6MYSF8MADjWYZctdeRlMA202mjGcdjq1Bugfhg207KHTjGWKWZlY/7/nxFShqQo74RslA==}
+    engines: {node: '>= 6.11.0'}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+      swiper: '>=5.0.0'
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -1769,6 +1783,10 @@ packages:
   supports-preserve-symlinks-flag@1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  swiper@11.1.15:
+    resolution: {integrity: sha512-IzWeU34WwC7gbhjKsjkImTuCRf+lRbO6cnxMGs88iVNKDwV+xQpBCJxZ4bNH6gSrIbbyVJ1kuGzo3JTtz//CBw==}
+    engines: {node: '>= 4.7.0'}
 
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
@@ -3543,6 +3561,13 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
+  react-id-swiper@4.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(swiper@11.1.15):
+    dependencies:
+      object-assign: 4.1.1
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+      swiper: 11.1.15
+
   react-is@16.13.1: {}
 
   react-loading-skeleton@3.5.0(react@19.0.0):
@@ -3817,6 +3842,8 @@ snapshots:
       has-flag: 4.0.0
 
   supports-preserve-symlinks-flag@1.0.0: {}
+
+  swiper@11.1.15: {}
 
   tapable@2.2.1: {}
 

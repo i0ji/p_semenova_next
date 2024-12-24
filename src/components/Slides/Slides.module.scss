@@ -1,6 +1,5 @@
 .slides {
   .slide {
-
     position: relative;
 
     border-radius: 5px;
@@ -21,24 +20,22 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: #f0f0f0; // Цвет фона для скелетона
+      background-color: #f0f0f0;
     }
   }
 
+  .slide__image {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
 
-    .slide__image {
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
+  .imageVisible {
+    opacity: 1;
+  }
 
-    .imageVisible {
-      opacity: 1;
-    }
-
-    .imageHidden {
-      opacity: 0;
-    }
-  
+  .imageHidden {
+    opacity: 0;
+  }
 
   .lefButton,
   .rightButton {
