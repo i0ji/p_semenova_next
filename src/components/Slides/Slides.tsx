@@ -1,46 +1,79 @@
 'use client';
 
-import Image from 'next/image';
-import styles from './Slides.module.scss';
+import { useRef, useState, useEffect } from 'react';
+
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import { useState } from 'react';
+import Image from 'next/image';
+import Slider from 'react-slick';
+
+import './slick.scss';
+import styles from './Slides.module.scss';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
+  const sliderRef = useRef<Slider>(null);
 
-  const handleImageLoad = (id: number) => {
-    setLoadedImages((prev) => new Set([...prev, id]));
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (typeof props.slides[0].img === 'string') {
+      const img = new globalThis.Image();
+      img.src = props.slides[0].img;
+      img.onload = () => setIsLoaded(true);
+    }
+    return () => {};
+  }, [props.slides]);
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    waitForAnimate: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    pauseOnHover: true,
+    arrows: false
   };
-
-  const isAllImagesLoaded = loadedImages.size === props.slides.length;
 
   return (
     <section className={styles.slides}>
-      {props.slides.map((slide) => (
-        <div key={slide.id} className={styles.slide}>
-          {!loadedImages.has(slide.id) && (
-            <div className={styles.skeletonWrapper}>
-              <Skeleton height={900} width={1600} />
-            </div>
-          )}
-          <Image
-            id="image"
-            src={slide.img}
-            alt={props.description}
-            className={`${styles.slide__image} ${
-              loadedImages.has(slide.id)
-                ? styles.imageVisible
-                : styles.imageHidden
-            }`}
-            width={1600}
-            height={900}
-            onLoad={() => handleImageLoad(slide.id)}
-          />
-        </div>
-      ))}
-
-      <p>{isAllImagesLoaded ? props.description : <Skeleton count={1} />}</p>
+      <Slider ref={sliderRef} {...settings}>
+        {props.slides.map((slide) => (
+          <div key={slide.id} className={styles.slide}>
+            {isLoaded ? (
+              <Image
+                id="image"
+                src={slide.img}
+                alt={props.description}
+                className={styles.slide__image}
+                width={1600}
+                height={900}
+                priority
+              />
+            ) : (
+              <Skeleton
+                height={900}
+                width={'100%'}
+                style={{ borderRadius: 5 }}
+              />
+            )}
+            {isLoaded && (
+              <>
+                <button
+                  className={styles.slide__leftArrow}
+                  onClick={() => sliderRef.current?.slickPrev()}
+                />
+                <button
+                  className={styles.slide__rightArrow}
+                  onClick={() => sliderRef.current?.slickNext()}
+                />
+              </>
+            )}
+          </div>
+        ))}
+      </Slider>
+      <p>{props.description}</p>
     </section>
   );
 }
