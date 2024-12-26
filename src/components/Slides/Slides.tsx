@@ -1,12 +1,14 @@
 'use client';
 
-import { useRef } from 'react';
-
+import { useState, useRef, forwardRef } from 'react';
 import Image from 'next/image';
-import Slider from 'react-slick';
 
-import './Slick.scss';
 import styles from './Slides.module.scss';
+
+import Slider from 'react-slick';
+import './Slider.scss';
+
+import Accordion from '../Accordion/Accordion';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
@@ -50,7 +52,10 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
           </div>
         ))}
       </Slider>
-      <p>{props.description}</p>
+
+      <Accordion>
+        <p>{props.description}</p>
+      </Accordion>
     </section>
   );
 }
