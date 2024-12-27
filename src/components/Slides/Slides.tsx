@@ -12,6 +12,11 @@ import Accordion from '../Accordion/Accordion';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
+  const [visibility, setVisibility] = useState(false);
+
+  const handleToggleVisibility = () => {
+    setVisibility((prevVisibility) => !prevVisibility);
+  };
 
   const settings = {
     dots: true,
@@ -52,10 +57,20 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
           </div>
         ))}
       </Slider>
-
-      <Accordion>
-        <p>{props.description}</p>
-      </Accordion>
+      <div className={styles.slides__description}>
+        <button onClick={handleToggleVisibility}>
+          <p>
+            {props.description} {visibility ? '↓' : '↑'}
+          </p>
+        </button>
+        <Accordion
+          description={props.description}
+          plot={
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro esse atque obcaecati consequatur itaque illo incidunt quas quos aliquid repudiandae quia rerum libero voluptatibus repellendus beatae corporis doloribus, numquam praesentium!  '
+          }
+          visibility={visibility}
+        />
+      </div>
     </section>
   );
 }

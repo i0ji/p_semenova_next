@@ -14,4 +14,12 @@ declare global {
       lastSlide?: boolean;
     }
   }
+
+  namespace AccordionModelNamespace {
+    interface AccordionModel {
+      description: string;
+      plot: string;
+      visibility: boolean;
+    }
+  }
 }
