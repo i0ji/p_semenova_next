@@ -51,7 +51,7 @@ Scroll button customizing: change arrow type and add timeout to display, but ref
 Got an issue with SSR/Client render and build diffs; Solved it by adding a `window` type check<br>
 <b>v: 0.2.2a / d: 24.12.24<br></b> 
 After multiple attempts to use different slider and carousel libs I`m testing react-multi-carousel;<br>
-<b>v: 0.2.2a / d: 27.12.24<br></b> 
+<b>v: 0.3.0 / d: 27.12.24<br></b> 
 1. After trying to modify the Slide library multiple times, I decided to go with React-Slick as it covers all my/the designer's implementation requirements;<br>
 2. Implemented accordion react-accessible-accordion lib => testing;<br>
 3. Faced some difficultes trying to insert Yandex-Metrika script inside the < Head >, so i used react-yandex-metrika lib with separate component, wich implements Yandex script;
