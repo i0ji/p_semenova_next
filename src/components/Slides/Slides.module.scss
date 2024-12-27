@@ -71,11 +71,12 @@
 
     border-radius: 5px;
 
+    cursor: pointer;
+
     button {
       @include flex(center, row);
       min-width: 65%;
       padding: 20px 0 20px 0;
-      background-color: red;
 
       border-radius: 5px;
       border: 0;
@@ -93,6 +94,11 @@
     ul {
       text-align: center;
       bottom: 20px;
+    }
+
+    &__description {
+      width: 100%;
+      // background-color: red;
     }
   }
 }
