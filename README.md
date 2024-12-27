@@ -2,7 +2,7 @@
 
 <h3>Table of contents:</h3>
 1. Stack/libruary usage<br>
-2. Commit short history descryption/progress<br>
+2. Commit short history description/progress<br>
 3. Known issues<br>
 
 <hr>
@@ -54,7 +54,7 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 <b>v: 0.2.2a / d: 27.12.24<br></b> 
 1. After trying to modify the Slide library multiple times, I decided to go with React-Slick as it covers all my/the designer's implementation requirements;<br>
 2. Implemented accordion react-accessible-accordion lib => testing;<br>
-3. Faced some difficultes trying to insert Yandex-Metrika script inside the < Head >, so i used react-yandex-metrika lib with separate ciomponent, wich implements Yandex script;
+3. Faced some difficultes trying to insert Yandex-Metrika script inside the < Head >, so i used react-yandex-metrika lib with separate component, wich implements Yandex script;
 <br>
 <hr>
 <h3> 3.</h3>
