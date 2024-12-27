@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, forwardRef } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 
 import styles from './Slides.module.scss';
