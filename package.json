@@ -31,6 +31,7 @@
     "gh-pages": "^6.2.0",
     "react-loading-skeleton": "^3.5.0",
     "react-slick": "^0.30.3",
+    "react-yandex-metrika": "^2.6.0",
     "sass": "^1.83.0",
     "sass-loader": "^16.0.4",
     "slick-carousel": "^1.8.1",

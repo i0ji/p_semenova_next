@@ -25,9 +25,8 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
 
   const settings = {
     dots: true,
-    fade: true,
     infinite: true,
-    speed: 500,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: true,
