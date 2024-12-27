@@ -64,5 +64,6 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 <b>UPD: moved slick styles to component folder and get rid of unused classes</b><br>
 <del>[X] Yandex.Analytics - UPD: have an integration issue; For now do not know where to put in in the dev version; I just put the script into the final bundle;</del><br>
 <b>UPD: use lib to add Metrika;</b><br>
-[&nbsp;&nbsp;] Implement DB with phpAdminPanel - to go<br>
+[&nbsp;&nbsp;] Non typed YM script;<br>
+[&nbsp;&nbsp;] Implement DB with phpAdminPanel - to go;<br>
 [&nbsp;&nbsp;] Skeleton loading - still can`t figure out if it works correctly or not - to go;<br>

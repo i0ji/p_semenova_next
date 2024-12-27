@@ -33,7 +33,13 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
-    arrows: false
+    arrows: false,
+    afterChange: () => {
+      const activeElement = document.activeElement as HTMLElement;
+      if (activeElement) {
+        activeElement.blur();
+      }
+    }
   };
 
   return (
@@ -60,7 +66,6 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
             )}
             {isLoaded && (
               <>
-                {' '}
                 <button
                   className={styles.slide__leftArrow}
                   onClick={() => sliderRef.current?.slickPrev()}
