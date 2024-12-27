@@ -1,31 +1,39 @@
 'use client';
 
 import { useEffect } from 'react';
-import { YMInitializer } from 'react-yandex-metrika';
-import ym from 'react-yandex-metrika';
 
 const YM_COUNTER_ID = 94167063;
 
 export default function Metrics() {
-  const hit = (url: string) => {
-    ym('hit', url);
-  };
-
   useEffect(() => {
-    hit(window.location.pathname + window.location.search);
+    const script = document.createElement('script');
+    script.src = `https://mc.yandex.ru/metrika/tag.js`;
+    script.async = true;
+    document.head.appendChild(script);
+
+    window[`ym`] =
+      window[`ym`] ||
+      function (...args) {
+        (window[`ym`].a = window[`ym`].a || []).push(args);
+      };
+    window[`ym`](YM_COUNTER_ID, 'init', {
+      defer: true,
+      webvisor: true,
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true
+    });
+
+    window[`ym`](
+      YM_COUNTER_ID,
+      'hit',
+      window.location.pathname + window.location.search
+    );
+
+    return () => {
+      document.head.removeChild(script);
+    };
   }, []);
 
-  return (
-    <YMInitializer
-      accounts={[YM_COUNTER_ID]}
-      options={{
-        defer: true,
-        webvisor: true,
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true
-      }}
-      version="2"
-    />
-  );
+  return null;
 }
