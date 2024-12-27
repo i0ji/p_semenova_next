@@ -9,7 +9,7 @@
 <h3> 1.</h3>
 1.1 Next.JS, SASS, TS;<br>
 1.2 Choose React-slick to implement slider: it has fade in/out, dots; <br>
-1.3 Next 15^, React 19^ (small compatibility issue), React-dom 19^ (small compatibility issue), TS, SASS, slick-carousel, react-slick, react-loading-skeleton, react-accessible-accordion
+1.3 Next 15^, React 19^ (small compatibility issue), React-dom 19^ (small compatibility issue), TS, SASS, slick-carousel, react-slick, react-loading-skeleton, react-accessible-accordion, react-yandex-metrika
 <br>
 <hr>
 <h3> 2.</h3>
@@ -54,7 +54,7 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 <b>v: 0.2.2a / d: 27.12.24<br></b> 
 1. After trying to modify the Slide library multiple times, I decided to go with React-Slick as it covers all my/the designer's implementation requirements;<br>
 2. Implemented accordion react-accessible-accordion lib => testing;<br>
-
+3. Faced some difficultes trying to insert Yandex-Metrika script inside the < Head >, so i used react-yandex-metrika lib with separate ciomponent, wich implements Yandex script;
 <br>
 <hr>
 <h3> 3.</h3>
