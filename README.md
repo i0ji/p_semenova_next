@@ -56,7 +56,7 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 2. Implemented accordion react-accessible-accordion lib => testing;<br>
 3. Faced some difficultes trying to insert Yandex-Metrika script inside the < Head >, so i used react-yandex-metrika lib with separate component, wich implements Yandex script;
 <br>
-<b>v: 0.3.0 / d: 27.12.24<br></b> 
+<b>v: 0.3.0 / d: 14.01.25<br></b> 
 1. Multiple libs update: react/dom/sass/eslint/next/pnpm;
 <hr>
 <h3> 3.</h3>

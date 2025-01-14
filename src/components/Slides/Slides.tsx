@@ -6,7 +6,7 @@ import Skeleton from 'react-loading-skeleton';
 import Image from 'next/image';
 import Slider from 'react-slick';
 
-import './slick.css';
+import './Slick.scss';
 import styles from './Slides.module.scss';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
