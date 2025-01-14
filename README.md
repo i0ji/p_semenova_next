@@ -58,6 +58,7 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 <br>
 <b>v: 0.3.0 / d: 14.01.25<br></b> 
 1. Multiple libs update: react/dom/sass/eslint/next/pnpm;
+2. Small image id refactor (should I use UUID?)
 <hr>
 <h3> 3.</h3>
 [X] <del>Still have trouble with build/dev paths and aliases; Still have to change it manually when deploy to Pages or to prod;</del><br>
