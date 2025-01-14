@@ -42,15 +42,18 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            <Image
-              id="image"
-              src={slide.img}
-              alt={props.description}
-              className={styles.slide__image}
-              width={1600}
-              height={900}
-              priority
-            />
+            {slide.img && (
+              <Image
+                id="image"
+                src={slide.img}
+                alt={props.description}
+                className={styles.slide__image}
+                width={1600}
+                height={900}
+                priority
+              />
+            )}
+            <p>{slide.text}</p>
 
             <>
               <button

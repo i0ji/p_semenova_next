@@ -4,7 +4,8 @@ declare global {
   namespace SlideModelNamespace {
     interface SlideModel {
       id: number;
-      img: string | StaticImageData;
+      img?: string | StaticImageData;
+      text?: string;
     }
 
     interface SlidesDataModel {
