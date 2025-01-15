@@ -4,6 +4,7 @@ import { useRef } from 'react';
 
 import Image from 'next/image';
 import Slider from 'react-slick';
+import white_bg from 'public/white_bg.png';
 
 import './Slick.scss';
 import styles from './Slides.module.scss';
@@ -21,6 +22,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     //OPTION return to true
     autoplay: false,
     autoplaySpeed: 4000,
+    adaptiveHeight: false,
     pauseOnHover: true,
     arrows: false,
     afterChange: () => {
@@ -36,7 +38,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            {slide.img && (
+            {slide.img ? (
               <Image
                 id="image"
                 src={slide.img}
@@ -46,8 +48,11 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 height={900}
                 priority
               />
+            ) : (
+     
+                <p className={styles.slide__about}>{slide.about}</p>
+       
             )}
-            {slide.about && <p>{slide.about}</p>}
 
             <button
               className={styles.slide__leftArrow}

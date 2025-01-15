@@ -55,7 +55,10 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 1. After trying to modify the Slide library multiple times, I decided to go with React-Slick as it covers all my/the designer's implementation requirements;<br>
 2. Implemented accordion react-accessible-accordion lib => testing;<br>
 3. Faced some difficultes trying to insert Yandex-Metrika script inside the < Head >, so i used react-yandex-metrika lib with separate component, wich implements Yandex script;
-<br>
+<br><b>v: 0.3.0 / d: 14.01.25<br></b> 
+1. Multiple libs update: react/dom/sass/eslint/next/pnpm;<br>
+2. Small image id refactor (should I use UUID?)<br>
+<br><b>v: 0.3.1 / d: 15.01.25<br></b> 
 <hr>
 <h3> 3.</h3>
 [X] <del>Still have trouble with build/dev paths and aliases; Still have to change it manually when deploy to Pages or to prod;</del><br>
