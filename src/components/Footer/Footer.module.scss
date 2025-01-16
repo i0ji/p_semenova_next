@@ -2,7 +2,7 @@
 @use '@/styles/colors' as *;
 
 .footer {
-  @include flex(space-between, column);
+  @include flex(column, space-between, null);
 
   hr {
     width: 100%;
@@ -18,7 +18,7 @@
   }
 
   &__about {
-    @include flex(space-between, row);
+    @include flex(row, space-between, null);
 
     margin: 30px 0;
 
@@ -30,7 +30,7 @@
   }
 
   &__contacts {
-    @include flex(space-between, row);
+    @include flex(row, space-between, null);
     position: relative;
 
     margin: 30px 0;
@@ -42,7 +42,7 @@
     div {
       order: 2;
 
-      @include flex('', column);
+      @include flex('', column, null);
       width: 54%;
     }
 

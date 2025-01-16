@@ -1,3 +1,5 @@
+@use '@/styles/mixin' as *;
+
 .slides {
   margin-bottom: 30px;
 
@@ -14,6 +16,7 @@
 
     //CURRENT
     &__about {
+      @include flex(null, center, center);
       text-align: center;
     }
 
@@ -65,7 +68,7 @@
     }
   }
 
-  p {
+  &__description {
     margin-top: 15px;
   }
 }

@@ -3,24 +3,24 @@ import { SlideData } from 'public';
 
 export default function Home() {
   //CONSOLE
-  console.log('v: 0.3.1/15.01.25');
+  console.log('v: 0.3.2/16.01.25');
 
   return (
     <>
       <Header />
-      {/* {SlideData.map((slides: SlideModelNamespace.SlidesDataModel) => (
+      {SlideData.map((slides: SlideModelNamespace.SlidesDataModel) => (
         <Slides
           key={slides.id}
           slides={slides.slides}
           description={slides.description}
         />
-      ))} */}
-      <Slides
+      ))}
+      {/* <Slides
         key={SlideData[0].id}
         slides={SlideData[0].slides}
         description={SlideData[0].description}
       />
-      {/* OPTION for one slide set test  */}
+      OPTION for one slide set test  */}
       <Footer />
     </>
   );

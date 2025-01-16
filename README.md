@@ -69,4 +69,4 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 <b>UPD: use lib to add Metrika;</b><br>
 [&nbsp;&nbsp;] Non typed YM script;<br>
 [&nbsp;&nbsp;] Implement DB with phpAdminPanel - to go;<br>
-[&nbsp;&nbsp;] Skeleton loading - still can`t figure out if it works correctly or not - to go;<br>
+[&nbsp;&nbsp;] Skeleton loading - still can`t figure out if it works correctly or not - to go;<br>X
