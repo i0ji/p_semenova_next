@@ -42,7 +42,7 @@
     div {
       order: 2;
 
-      @include flex('', column, null);
+      @include flex(column, null, null);
       width: 54%;
     }
 

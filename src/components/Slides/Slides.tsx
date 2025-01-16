@@ -2,13 +2,11 @@
 
 import { useRef, useState, useEffect } from 'react';
 
+import Slider from 'react-slick';
 import Image from 'next/image';
 
 import './Slick.scss';
 import styles from './Slides.module.scss';
-
-import Slider from 'react-slick';
-import './Slider.scss';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);

@@ -59,6 +59,12 @@ After multiple attempts to use different slider and carousel libs I`m testing re
 1. Multiple libs update: react/dom/sass/eslint/next/pnpm;<br>
 2. Small image id refactor (should I use UUID?)<br>
 <br><b>v: 0.3.1 / d: 15.01.25<br></b> 
+Start making slide description; Multiple attepmts; Face an issue with paragraph height. Non of <p> parents have certain height in PX;<br>
+<br><b>v: 0.3.2 / d: 16.01.25<br></b> 
+Make dynamically changing height based on <Image> height;<br>
+Change my SCSS mixin flex forumla;<br>
+Font size issue to go<br>
+
 <hr>
 <h3> 3.</h3>
 [X] <del>Still have trouble with build/dev paths and aliases; Still have to change it manually when deploy to Pages or to prod;</del><br>
