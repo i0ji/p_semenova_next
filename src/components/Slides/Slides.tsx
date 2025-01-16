@@ -10,8 +10,6 @@ import styles from './Slides.module.scss';
 import Slider from 'react-slick';
 import './Slider.scss';
 
-import Accordion from '../Accordion/Accordion';
-
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
 
@@ -20,11 +18,17 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
 
   useEffect(() => {
     const updateHeight = () => {
-      const activeSlide = sliderRef.current?.innerSlider?.list.querySelector(
-        '.slick-track .slick-active img'
-      ) as HTMLImageElement;
-      if (activeSlide) {
-        setSlideHeight(activeSlide.clientHeight);
+      const slider = sliderRef.current;
+
+      if (slider && slider.innerSlider && slider.innerSlider.list) {
+        const activeSlide = document.querySelector(
+          '.slick-slide.slick-active img'
+        ) as HTMLImageElement;
+
+        if (activeSlide) {
+          const height = activeSlide.clientHeight;
+          setSlideHeight(height);
+        }
       }
     };
 
