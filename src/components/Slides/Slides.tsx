@@ -1,8 +1,10 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+
 import Image from 'next/image';
 
+import './Slick.scss';
 import styles from './Slides.module.scss';
 
 import Slider from 'react-slick';
@@ -12,11 +14,28 @@ import Accordion from '../Accordion/Accordion';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
-  const [visibility, setVisibility] = useState(false);
 
-  const handleToggleVisibility = () => {
-    setVisibility((prevVisibility) => !prevVisibility);
-  };
+  //OPTION
+  const [slideHeight, setSlideHeight] = useState<number>(0);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      const activeSlide = sliderRef.current?.innerSlider?.list.querySelector(
+        '.slick-track .slick-active img'
+      ) as HTMLImageElement;
+      if (activeSlide) {
+        setSlideHeight(activeSlide.clientHeight);
+      }
+    };
+
+    window.addEventListener('resize', updateHeight);
+    updateHeight();
+
+    return () => {
+      window.removeEventListener('resize', updateHeight);
+    };
+  }, [props.slides]);
+  //OPTION
 
   const settings = {
     dots: true,
@@ -25,10 +44,19 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: true,
-    autoplay: true,
+    //OPTION return to true
+    adaptiveHeight: false,
+    autoplay: false,
+    //OPTION
     autoplaySpeed: 4000,
     pauseOnHover: true,
-    arrows: false
+    arrows: false,
+    afterChange: () => {
+      const activeElement = document.activeElement as HTMLElement;
+      if (activeElement) {
+        activeElement.blur();
+      }
+    }
   };
 
   return (
@@ -36,15 +64,35 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            <Image
-              id="image"
-              src={slide.img}
-              alt={props.description}
-              className={styles.slide__image}
-              width={1600}
-              height={900}
-              priority
-            />
+            {slide.img ? (
+              <Image
+                id={`image-${slide.id}`}
+                src={slide.img}
+                alt={props.description}
+                className={styles.slide__image}
+                width={1600}
+                height={900}
+                priority
+                onLoad={() => {
+                  // Находим активный слайд
+                  const activeSlide = document.querySelector(
+                    '.slick-slide.slick-active img'
+                  ) as HTMLImageElement;
+                  if (activeSlide) {
+                    const height = activeSlide.clientHeight;
+                    console.log(`Image height: ${height}`); // Логируем высоту
+                    setSlideHeight(height);
+                  }
+                }}
+              />
+            ) : (
+              <p
+                className={styles.slide__about}
+                style={{ height: slideHeight }}
+              >
+                {slide.about}
+              </p>
+            )}
 
             <button
               className={styles.slide__leftArrow}
@@ -57,20 +105,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
           </div>
         ))}
       </Slider>
-      <div className={styles.slides__description}>
-        <button onClick={handleToggleVisibility}>
-          <p>
-            {props.description} {visibility ? '↓' : '↑'}
-          </p>
-        </button>
-        <Accordion
-          description={props.description}
-          plot={
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro esse atque obcaecati consequatur itaque illo incidunt quas quos aliquid repudiandae quia rerum libero voluptatibus repellendus beatae corporis doloribus, numquam praesentium!  '
-          }
-          visibility={visibility}
-        />
-      </div>
+      <p className={styles.slides__description}>{props.description}</p>
     </section>
   );
 }

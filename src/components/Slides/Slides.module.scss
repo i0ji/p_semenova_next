@@ -1,5 +1,4 @@
 @use '@/styles/mixin' as *;
-@use '@/styles/colors' as *;
 
 .slides {
   margin-bottom: 30px;
@@ -14,6 +13,12 @@
       width: auto;
 
       border-radius: 5px;
+    }
+
+    //CURRENT
+    &__about {
+      @include flex(null, center, center);
+      text-align: center;
     }
 
     &__leftArrow,
@@ -65,27 +70,7 @@
   }
 
   &__description {
-    @include flex(space-between, column);
-    width: 65%;
-    background-color: $brand_gray;
-
-    border-radius: 5px;
-
-    cursor: pointer;
-
-    button {
-      @include flex(center, row);
-      min-width: 65%;
-      padding: 20px 0 20px 0;
-
-      border-radius: 5px;
-      border: 0;
-
-      display: flex;
-      background-color: transparent;
-      align-items: center;
-      font-size: inherit;
-    }
+    margin-top: 15px;
   }
 }
 
@@ -94,11 +79,6 @@
     ul {
       text-align: center;
       bottom: 20px;
-    }
-
-    &__description {
-      width: 100%;
-      // background-color: red;
     }
   }
 }

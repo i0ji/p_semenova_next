@@ -1,7 +1,7 @@
 @use '@/styles/mixin' as *;
 
 .header {
-  @include flex(space-between, row);
+  @include flex(row, space-between, null);
   align-items: center;
 
   height: 45px;

@@ -2,11 +2,15 @@
   background-color: red;
 }
 
-@mixin flex($content, $direction) {
+@mixin flex($direction, $horizontal, $vertical) {
   display: flex;
 
-  @if $content != null {
-    justify-content: $content;
+  @if $horizontal != null {
+    justify-content: $horizontal;
+  }
+
+  @if $vertical != null {
+    align-items: $vertical;
   }
 
   @if $direction != null {
