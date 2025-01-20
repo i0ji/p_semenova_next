@@ -10,7 +10,7 @@ import styles from './Slides.module.scss';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
-
+  
   //OPTION
   const [slideHeight, setSlideHeight] = useState<number>(0);
 
