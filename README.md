@@ -67,6 +67,7 @@ Font size issue to go<br>
 <br><b>v: 0.3.2 / d: 20.01.25<br></b> 
 1. Package updates;
 2. Font issues resolved;
+3. Continue skeleton loading setting;
 
 <hr>
 <h3> 3.</h3>
