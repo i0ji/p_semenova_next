@@ -14,6 +14,11 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   //OPTION
   const [slideHeight, setSlideHeight] = useState<number>(0);
 
+  //OPTION
+  //CONSOLE
+  const windowWidth = window.innerWidth;
+  console.log('Window width: ', windowWidth);
+
   useEffect(() => {
     const updateHeight = () => {
       const slider = sliderRef.current;
@@ -36,7 +41,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     return () => {
       window.removeEventListener('resize', updateHeight);
     };
-  }, [props.slides]);
+  }, [props.slides, windowWidth]);
   //OPTION
 
   const settings = {
@@ -76,13 +81,13 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 height={900}
                 priority
                 onLoad={() => {
-                  // Находим активный слайд
                   const activeSlide = document.querySelector(
                     '.slick-slide.slick-active img'
                   ) as HTMLImageElement;
                   if (activeSlide) {
                     const height = activeSlide.clientHeight;
-                    console.log(`Image height: ${height}`); // Логируем высоту
+                    //CONSOLE
+                    console.log(`Image height: ${height}`);
                     setSlideHeight(height);
                   }
                 }}

@@ -64,6 +64,9 @@ Start making slide description; Multiple attepmts; Face an issue with paragraph 
 Make dynamically changing height based on <Image> height;<br>
 Change my SCSS mixin flex forumla;<br>
 Font size issue to go<br>
+<br><b>v: 0.3.2 / d: 20.01.25<br></b> 
+1. Package updates;
+2. Font issues resolved;
 
 <hr>
 <h3> 3.</h3>
