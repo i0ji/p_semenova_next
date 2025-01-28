@@ -47,7 +47,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            {isLoaded && slide.img ? (
+            {slide.img && (
               <Image
                 id="image"
                 src={slide.img}
@@ -57,25 +57,15 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 height={900}
                 priority
               />
-            ) : (
-              <Skeleton
-                height={900}
-                width={'100%'}
-                style={{ borderRadius: 5 }}
-              />
             )}
-            {isLoaded && (
-              <>
-                <button
-                  className={styles.slide__leftArrow}
-                  onClick={() => sliderRef.current?.slickPrev()}
-                />
-                <button
-                  className={styles.slide__rightArrow}
-                  onClick={() => sliderRef.current?.slickNext()}
-                />
-              </>
-            )}
+            <button
+              className={styles.slide__leftArrow}
+              onClick={() => sliderRef.current?.slickPrev()}
+            />
+            <button
+              className={styles.slide__rightArrow}
+              onClick={() => sliderRef.current?.slickNext()}
+            />
           </div>
         ))}
       </Slider>
