@@ -1,22 +1,27 @@
 'use client';
 
-import { useState, useRef, forwardRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
+
+import Skeleton from 'react-loading-skeleton';
 import Image from 'next/image';
-
-import styles from './Slides.module.scss';
-
 import Slider from 'react-slick';
-import './Slider.scss';
 
-import Accordion from '../Accordion/Accordion';
+import './Slider.scss';
+import styles from './Slides.module.scss';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
-  const [visibility, setVisibility] = useState(false);
 
-  const handleToggleVisibility = () => {
-    setVisibility((prevVisibility) => !prevVisibility);
-  };
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (typeof props.slides[0].img === 'string') {
+      const img = new globalThis.Image();
+      img.src = props.slides[0].img;
+      img.onload = () => setIsLoaded(true);
+    }
+    return () => {};
+  }, [props.slides]);
 
   const settings = {
     dots: true,
@@ -42,7 +47,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
-            {slide.img && (
+            {isLoaded && slide.img ? (
               <Image
                 id="image"
                 src={slide.img}
@@ -52,36 +57,29 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 height={900}
                 priority
               />
+            ) : (
+              <Skeleton
+                height={900}
+                width={'100%'}
+                style={{ borderRadius: 5 }}
+              />
             )}
-            <p>{slide.text}</p>
-
-            <>
-              <button
-                className={styles.slide__leftArrow}
-                onClick={() => sliderRef.current?.slickPrev()}
-              />
-              <button
-                className={styles.slide__rightArrow}
-                onClick={() => sliderRef.current?.slickNext()}
-              />
-            </>
+            {isLoaded && (
+              <>
+                <button
+                  className={styles.slide__leftArrow}
+                  onClick={() => sliderRef.current?.slickPrev()}
+                />
+                <button
+                  className={styles.slide__rightArrow}
+                  onClick={() => sliderRef.current?.slickNext()}
+                />
+              </>
+            )}
           </div>
         ))}
       </Slider>
-      <div className={styles.slides__description}>
-        <button onClick={handleToggleVisibility}>
-          <p>
-            {props.description} {visibility ? '↓' : '↑'}
-          </p>
-        </button>
-        <Accordion
-          description={props.description}
-          plot={
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro esse atque obcaecati consequatur itaque illo incidunt quas quos aliquid repudiandae quia rerum libero voluptatibus repellendus beatae corporis doloribus, numquam praesentium!  '
-          }
-          visibility={visibility}
-        />
-      </div>
+      <p>{props.description}</p>
     </section>
   );
 }

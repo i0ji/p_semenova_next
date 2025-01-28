@@ -1,9 +1,5 @@
-@use '@/styles/mixin' as *;
-@use '@/styles/colors' as *;
-
 .slides {
   margin-bottom: 30px;
-  overflow: hidden;
 
   .slide {
     position: relative;
@@ -64,27 +60,8 @@
     }
   }
 
-  &__description {
-    @include flex(space-between, column);
-    width: 65%;
-    background-color: $brand_gray;
-
-    border-radius: 5px;
-
-    button {
-      @include flex(center, row);
-      min-width: 65%;
-      padding: 20px 0 20px 0;
-      background-color: red;
-
-      border-radius: 5px;
-      border: 0;
-
-      display: flex;
-      background-color: transparent;
-      align-items: center;
-      font-size: inherit;
-    }
+  p {
+    margin-top: 15px;
   }
 }
 
