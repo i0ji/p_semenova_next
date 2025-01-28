@@ -65,9 +65,9 @@ Make dynamically changing height based on <Image> height;<br>
 Change my SCSS mixin flex forumla;<br>
 Font size issue to go<br>
 <br><b>v: 0.3.2 / d: 20.01.25<br></b> 
-1. Package updates;
-2. Font issues resolved;
-3. Continue skeleton loading setting;
+1. Package updates;<br>
+2. Font issues resolved;<br>
+3. Continue skeleton loading setting;<br>
 
 <hr>
 <h3> 3.</h3>

@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   basePath: '',
   assetPrefix: '.',
+  experimental: {
+    turbo: {}
+  },
   webpack: (config) => {
     config.resolve.alias['@styles'] = './src/styles/*';
     config.module.rules.push({

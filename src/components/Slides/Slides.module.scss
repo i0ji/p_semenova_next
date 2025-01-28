@@ -15,7 +15,11 @@
       border-radius: 5px;
     }
 
-    //CURRENT
+    .hidden {
+      display: none;
+    }
+
+    //OPTION FOR DESCRIPTION SLIDE
     &__about {
       @include flex(null, center, center);
       text-align: center;

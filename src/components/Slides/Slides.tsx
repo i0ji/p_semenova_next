@@ -7,10 +7,16 @@ import Image from 'next/image';
 
 import './Slick.scss';
 import styles from './Slides.module.scss';
+//CURRENT
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const sliderRef = useRef<Slider>(null);
-  
+
+  //CURRENT
+  const [loading, setLoading] = useState(true);
+
   //OPTION
   const [slideHeight, setSlideHeight] = useState<number>(0);
 
@@ -71,6 +77,14 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       <Slider ref={sliderRef} {...settings}>
         {props.slides.map((slide) => (
           <div key={slide.id} className={styles.slide}>
+            {loading && (
+              <Skeleton
+                height={slideHeight || 300}
+                width="100%"
+                className={styles.skeleton}
+              />
+            )}
+
             {slide.img ? (
               <Image
                 id={`image-${slide.id}`}
