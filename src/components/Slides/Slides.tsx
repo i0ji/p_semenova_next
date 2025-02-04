@@ -70,13 +70,12 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 height={900}
                 priority
                 onLoad={() => {
-                  // Находим активный слайд
                   const activeSlide = document.querySelector(
                     '.slick-slide.slick-active img'
                   ) as HTMLImageElement;
                   if (activeSlide) {
                     const height = activeSlide.clientHeight;
-                    console.log(`Image height: ${height}`); // Логируем высоту
+                    console.log(`Image height: ${height}`);
                     setSlideHeight(height);
                   }
                 }}
