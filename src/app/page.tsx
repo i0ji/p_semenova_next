@@ -3,7 +3,7 @@ import { SlideData } from 'public';
 
 export default function Home() {
   //CONSOLE
-  console.log('v: 0.3.2/04.02.25');
+  console.log('v: 0.3.3/04.02.25');
 
   return (
     <>

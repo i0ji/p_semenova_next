@@ -72,7 +72,9 @@ Font size issue to go<br>
 <br><b>v: 0.3.2 / d: 28.01.25<br></b> 
 1. Restore <b>develop</b> branch to main view: w/o accordion, skeleton and descriptions;<br>
 2. Add conditional render to remove dev issues;<br>
-3.
+<br><b>v: 0.3.3 / d: 04.02.25<br></b> 
+1. moved away from the idea of ​​a slider with a description, switched to Skeleton implementation;<br>
+2. 
 <hr>
 <br>
 <h3> 3.</h3>
