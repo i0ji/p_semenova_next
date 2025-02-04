@@ -24,6 +24,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   }, [props.slides]);
 
   const settings = {
+    accessibility: false,
     dots: true,
     infinite: true,
     speed: 300,
@@ -34,11 +35,19 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     autoplaySpeed: 4000,
     pauseOnHover: true,
     arrows: false,
-    afterChange: () => {
+    afterChange: (currentSlide: number) => {
       const activeElement = document.activeElement as HTMLElement;
       if (activeElement) {
         activeElement.blur();
       }
+      const slides = document.querySelectorAll('.slick-slide');
+      slides.forEach((slide, index) => {
+        if (index === currentSlide) {
+          slide.removeAttribute('inert');
+        } else {
+          slide.setAttribute('inert', 'true');
+        }
+      });
     }
   };
 
@@ -61,10 +70,12 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
             <button
               className={styles.slide__leftArrow}
               onClick={() => sliderRef.current?.slickPrev()}
+              // tabIndex={-1}
             />
             <button
               className={styles.slide__rightArrow}
               onClick={() => sliderRef.current?.slickNext()}
+              // tabIndex={-1}
             />
           </div>
         ))}
