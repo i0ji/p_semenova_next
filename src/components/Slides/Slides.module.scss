@@ -1,8 +1,5 @@
-@use '@/styles/mixin' as *;
-
 .slides {
   margin-bottom: 30px;
-  overflow: hidden;
 
   .slide {
     position: relative;
@@ -17,12 +14,6 @@
 
     .hidden {
       display: none;
-    }
-
-    //OPTION FOR DESCRIPTION SLIDE
-    &__about {
-      @include flex(null, center, center);
-      text-align: center;
     }
 
     &__leftArrow,
@@ -73,7 +64,7 @@
     }
   }
 
-  &__description {
+  p {
     margin-top: 15px;
   }
 }
