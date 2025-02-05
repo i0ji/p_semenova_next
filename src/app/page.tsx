@@ -8,9 +8,10 @@ export default function Home() {
       {SlideData.map((slides: SlideModelNamespace.SlidesDataModel) => (
         <Slides
           key={slides.id}
+          id={slides.id}
           slides={slides.slides}
           description={slides.description}
-          lastSlide={slides.lastSlide}
+          // lastSlide={slides.lastSlide}
         />
       ))}
       <Footer />
