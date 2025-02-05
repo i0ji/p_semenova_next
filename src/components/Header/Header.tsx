@@ -7,9 +7,7 @@ import scrollToSide from '@/services/scrollToSide';
 export default function Header() {
   return (
     <header className={styles.header}>
-      <a href="#" onClick={() => scrollToSide('bottom')}>
-        Катерина Семёнова
-      </a>
+      <a onClick={() => scrollToSide('bottom')}>Катерина Семёнова</a>
     </header>
   );
 }

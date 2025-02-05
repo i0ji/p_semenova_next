@@ -1,83 +1,67 @@
 .slides {
+  margin-bottom: 50px;
+
   .slide {
     position: relative;
-
-    border-radius: 5px;
 
     &__image {
       max-width: 100%;
       height: 100%;
       width: auto;
+
+      border-radius: 5px;
     }
 
-    .skeletonWrapper {
+    &__leftArrow,
+    &__rightArrow {
       position: absolute;
-      top: 0;
+      bottom: -50%;
+      z-index: 1;
 
-      left: 0;
-      width: 100%;
+      width: 35%;
       height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #f0f0f0;
+      padding: 0;
+      margin: 0;
+
+      border-radius: 5px;
+
+      opacity: 0;
+      background-color: transparent;
+
+      cursor: pointer;
+      transition: 2s all ease;
+      transform: translateY(-50%);
+    }
+
+    &__leftArrow {
+      left: 0;
+    }
+
+    &__rightArrow {
+      right: 0;
+    }
+
+    &__leftArrow:hover {
+      opacity: 0.5;
+      background: linear-gradient(-90deg, transparent, black) transparent;
+    }
+    &__rightArrow:hover {
+      opacity: 0.5;
+      background: linear-gradient(90deg, transparent, black) transparent;
     }
   }
 
-  .slide__image {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
+  ul {
+    bottom: -40px;
+    text-align: right;
 
-  .imageVisible {
-    opacity: 1;
-  }
-
-  .imageHidden {
-    opacity: 0;
-  }
-
-  .lefButton,
-  .rightButton {
-    position: absolute;
-    z-index: 1000;
-    bottom: -50%;
-    z-index: 1;
-
-    width: 35%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-
-    border-radius: 5px;
-
-    opacity: 0;
-    background-color: transparent;
-
-    cursor: pointer;
-    transition: 2s all ease;
-    transform: translateY(-50%);
-  }
-
-  .lefButton {
-    left: 0;
-  }
-
-  .rightButton {
-    right: 0;
-  }
-
-  .lefButton:hover {
-    opacity: 0.5;
-    background: linear-gradient(-90deg, transparent, black) transparent;
-  }
-  .rightButton:hover {
-    opacity: 0.5;
-    background: linear-gradient(90deg, transparent, black) transparent;
+    li > button::before {
+      font-size: 25px;
+    }
   }
 
   p {
-    margin-top: 10px;
+    margin-top: 15px;
   }
 }
 
