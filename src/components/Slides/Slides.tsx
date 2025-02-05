@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 //SPLIDE
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { Splide, SplideSlide, SplideTrack } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 //------
 
@@ -24,6 +24,7 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
 
   // OPTION
 
+  //SKELETON USE EFFECT CONDITION
   useEffect(() => {
     const imageElements = document.querySelectorAll(`.${styles.slide__image}`);
     let loadedCount = 0;
@@ -57,44 +58,30 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     };
   }, [props.slides]);
 
-  // const settings = {
-  //   accessibility: false,
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 300,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   waitForAnimate: true,
-  //   adaptiveHeight: true,
-  //   autoplay: true,
-  //   autoplaySpeed: 4000,
-  //   pauseOnHover: true,
-  //   arrows: false
-  // };
-
   return (
     <section className={styles.slides}>
       <Splide>
-        {props.slides.map((slide) => (
-          <SplideSlide key={slide.id} className={styles.slide}>
-            {!imagesLoaded ? (
-              <Skeleton height={900} width={2000} />
-            ) : (
-              slide.img && (
-                <div inert={true}>
-                  <Image
-                    src={slide.img}
-                    alt={props.description}
-                    className={styles.slide__image}
-                    width={1600}
-                    height={900}
-                    priority
-                    aria-hidden={false}
-                  />
-                </div>
-              )
-            )}
-            {/* <button
+        <SplideTrack>
+          {props.slides.map((slide) => (
+            <SplideSlide key={slide.id} className={styles.slide}>
+              {!imagesLoaded ? (
+                <Skeleton height={900} width={2000} />
+              ) : (
+                slide.img && (
+                  <div inert={true}>
+                    <Image
+                      src={slide.img}
+                      alt={props.description}
+                      className={styles.slide__image}
+                      width={1600}
+                      height={900}
+                      priority
+                      aria-hidden={false}
+                    />
+                  </div>
+                )
+              )}
+              {/* <button
               className={styles.slide__leftArrow}
               onClick={() => sliderRef.current?.slickPrev()}
             />
@@ -102,8 +89,14 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
               className={styles.slide__rightArrow}
               onClick={() => sliderRef.current?.slickNext()}
             /> */}
-          </SplideSlide>
-        ))}
+            </SplideSlide>
+          ))}
+        </SplideTrack>
+
+        <div className="splide__arrows">
+          <button className="splide__arrow splide__arrow--prev">Prev</button>
+          <button className="splide__arrow splide__arrow--next">Next</button>
+        </div>
       </Splide>
       <p>{props.description}</p>
     </section>
