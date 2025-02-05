@@ -42,9 +42,6 @@ importers:
       gh-pages:
         specifier: ^6.3.0
         version: 6.3.0
-      react-id-swiper:
-        specifier: ^4.0.0
-        version: 4.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(swiper@11.2.2)
       react-loading-skeleton:
         specifier: ^3.5.0
         version: 3.5.0(react@19.0.0)
@@ -63,12 +60,12 @@ importers:
       slick-carousel:
         specifier: ^1.8.1
         version: 1.8.1(jquery@3.7.1)
-      swiper:
-        specifier: ^11.2.2
-        version: 11.2.2
       typescript:
         specifier: ^5.7.3
         version: 5.7.3
+      uuid:
+        specifier: ^11.0.5
+        version: 11.0.5
 
 packages:
 
@@ -1572,14 +1569,6 @@ packages:
     peerDependencies:
       react: ^19.0.0
 
-  react-id-swiper@4.0.0:
-    resolution: {integrity: sha512-BFY8VQYgc1ECkT1Ek6MYSF8MADjWYZctdeRlMA202mjGcdjq1Bugfhg207KHTjGWKWZlY/7/nxFShqQo74RslA==}
-    engines: {node: '>= 6.11.0'}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-      swiper: '>=5.0.0'
-
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -1835,10 +1824,6 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
 
-  swiper@11.2.2:
-    resolution: {integrity: sha512-FmAN6zACpVUbd/1prO9xQ9gKo9cc6RE2UKU/z4oXtS8fNyX4sdOW/HHT/e444WucLJs0jeMId6WjdWM2Lrs8zA==}
-    engines: {node: '>= 4.7.0'}
-
   tapable@2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}
     engines: {node: '>=6'}
@@ -1928,6 +1913,10 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
+
+  uuid@11.0.5:
+    resolution: {integrity: sha512-508e6IcKLrhxKdBbcA2b4KQZlLVp2+J5UwQ6F7Drckkc5N9ZJwFa4TgWtsww9UG8fGHbm6gbV19TdM5pQ4GaIA==}
+    hasBin: true
 
   watchpack@2.4.2:
     resolution: {integrity: sha512-TnbFSbcOCcDgjZ4piURLCbJ3nJhznVh9kw6F6iokjiFPl8ONxe9A6nMDVXDiNbrSfLILs6vB07F7wLBrwPYzJw==}
@@ -3631,13 +3620,6 @@ snapshots:
       react: 19.0.0
       scheduler: 0.25.0
 
-  react-id-swiper@4.0.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(swiper@11.2.2):
-    dependencies:
-      object-assign: 4.1.1
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      swiper: 11.2.2
-
   react-is@16.13.1: {}
 
   react-loading-skeleton@3.5.0(react@19.0.0):
@@ -3937,8 +3919,6 @@ snapshots:
 
   supports-preserve-symlinks-flag@1.0.0: {}
 
-  swiper@11.2.2: {}
-
   tapable@2.2.1: {}
 
   terser-webpack-plugin@5.3.11(webpack@5.97.1):
@@ -4037,6 +4017,8 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
+
+  uuid@11.0.5: {}
 
   watchpack@2.4.2:
     dependencies:

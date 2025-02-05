@@ -1,22 +1,22 @@
 import { StaticImageData } from 'next/image';
 
 declare global {
-
   namespace SlideModelNamespace {
+
     interface SlideModel {
       id: number;
-      img?: string | StaticImageData;
+      img?: string;
     }
 
     //FIXME
     interface SlidesDataModel {
-      id: number;
       slides: Array<SlideModel>;
       description: string;
     }
   }
 
   //FIXME
+  //LATER
   // namespace AccordionModelNamespace {
   //   interface AccordionModel {
   //     description: string;

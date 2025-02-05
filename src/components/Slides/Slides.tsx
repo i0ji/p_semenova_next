@@ -31,22 +31,6 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
       }
     };
 
-    const handleResize = () => {
-      const hiddenSlides = document.querySelectorAll(
-        '.slick-slide[aria-hidden="true"]'
-      );
-      hiddenSlides.forEach((slide) => {
-        const focusableElements = slide.querySelectorAll(
-          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-        );
-        focusableElements.forEach((element) => {
-          element.setAttribute('tabindex', '-1');
-        });
-      });
-    };
-
-    window.addEventListener('resize', handleResize);
-
     imageElements.forEach((img) => {
       const image = img as HTMLImageElement;
 
@@ -66,11 +50,8 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
         const image = img as HTMLImageElement;
         image.removeEventListener('load', handleImageLoad);
       });
-      window.removeEventListener('resize', handleResize);
     };
   }, [props.slides]);
-
-  //OPTION
 
   const settings = {
     accessibility: false,
@@ -87,9 +68,6 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     arrows: false
   };
 
-  //CONSOLE
-  // console.log('ACCESS: ', settings.accessibility);
-
   return (
     <section className={styles.slides}>
       <Slider ref={sliderRef} {...settings}>
@@ -99,15 +77,17 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
               <Skeleton height={900} width={2000} />
             ) : (
               slide.img && (
-                <Image
-                  id={`image-${slide.id}`}
-                  src={slide.img}
-                  alt={props.description}
-                  className={styles.slide__image}
-                  width={1600}
-                  height={900}
-                  priority
-                />
+                <div inert={true}>
+                  <Image
+                    src={slide.img}
+                    alt={props.description}
+                    className={styles.slide__image}
+                    width={1600}
+                    height={900}
+                    priority
+                    aria-hidden={false}
+                  />
+                </div>
               )
             )}
             <button
@@ -121,7 +101,6 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
           </div>
         ))}
       </Slider>
-
       <p>{props.description}</p>
     </section>
   );

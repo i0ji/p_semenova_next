@@ -10,6 +10,8 @@
 1.1 Next.JS, SASS, TS;<br>
 1.2 Choose React-slick to implement slider: it has fade in/out, dots; <br>
 1.3 Next 15^, React 19^ (small compatibility issue), React-dom 19^ (small compatibility issue), TS, SASS, slick-carousel, react-slick, react-loading-skeleton, react-accessible-accordion, react-yandex-metrika
+
+1.4 UUID for unqiue array IDs
 <hr>
 <br>
 <h3> 2.</h3>
@@ -72,7 +74,10 @@ Font size issue to go<br>
 <br><b>v: 0.3.2 / d: 28.01.25<br></b> 
 1. Restore <b>develop</b> branch to main view: w/o accordion, skeleton and descriptions;<br>
 2. Add conditional render to remove dev issues;<br>
-3.
+<br><b>v: 0.3.3 / d: 04.02.25<br></b> 
+1. moved away from the idea of ​​a slider with a description, switched to Skeleton implementation;<br>
+<br><b>v: 0.3.3a / d: 05.02.25<br></b> 
+1. Add UUID lib for unique ids<br>
 <hr>
 <br>
 <h3> 3.</h3>
@@ -84,4 +89,4 @@ Font size issue to go<br>
 <b>UPD: use lib to add Metrika;</b><br>
 [&nbsp;&nbsp;] Non typed YM script<br>
 [&nbsp;&nbsp;] Implement DB with phpAdminPanel - to go;<br>
-[&nbsp;&nbsp;] Skeleton loading - still can`t figure out if it works correctly or not - to go;<br>
+[&nbsp;&nbsp;] Skeleton loading - still can`t figure out if it works correctly or not<br> <strong>UPD: NOW TESTINGS</strong>;<br>
