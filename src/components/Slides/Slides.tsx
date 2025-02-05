@@ -1,18 +1,22 @@
 'use client';
 
-import { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import Image from 'next/image';
-import Slider from 'react-slick';
 
-import './Slider.scss';
+//SPLIDE
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+//------
+
 import styles from './Slides.module.scss';
 
+//SKELETON
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+//--------
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
-  const sliderRef = useRef<Slider>(null);
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   //CONSOLE
@@ -53,26 +57,26 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     };
   }, [props.slides]);
 
-  const settings = {
-    accessibility: false,
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    waitForAnimate: true,
-    adaptiveHeight: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false
-  };
+  // const settings = {
+  //   accessibility: false,
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 300,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   waitForAnimate: true,
+  //   adaptiveHeight: true,
+  //   autoplay: true,
+  //   autoplaySpeed: 4000,
+  //   pauseOnHover: true,
+  //   arrows: false
+  // };
 
   return (
     <section className={styles.slides}>
-      <Slider ref={sliderRef} {...settings}>
+      <Splide>
         {props.slides.map((slide) => (
-          <div key={slide.id} className={styles.slide}>
+          <SplideSlide key={slide.id} className={styles.slide}>
             {!imagesLoaded ? (
               <Skeleton height={900} width={2000} />
             ) : (
@@ -90,17 +94,17 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
                 </div>
               )
             )}
-            <button
+            {/* <button
               className={styles.slide__leftArrow}
               onClick={() => sliderRef.current?.slickPrev()}
             />
             <button
               className={styles.slide__rightArrow}
               onClick={() => sliderRef.current?.slickNext()}
-            />
-          </div>
+            /> */}
+          </SplideSlide>
         ))}
-      </Slider>
+      </Splide>
       <p>{props.description}</p>
     </section>
   );
