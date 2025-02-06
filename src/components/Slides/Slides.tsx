@@ -7,7 +7,6 @@ import styles from './Slides.module.scss';
 //SPLIDE
 import {
   Splide,
-  Splide as SplideType,
   SplideSlide,
   SplideInstance,
 } from '@splidejs/react-splide';
@@ -94,39 +93,40 @@ export default function Slides(
   // OPTION
   return (
     <section className={styles.slides}>
-      <Splide
-        ref={splideRef}
-        tag="div"
-        options={{
-          arrows: false,
-          type: 'loop',
-          gap: '2rem',
-          // autoPlay: true,
-          // interval: 3000,Z
-          // pauseOnHover: true,
-          // resetProgress: false
-        }}
-      >
-        {props.slides.map((slide) => (
-          <SplideSlide key={slide.id} className={styles.slide}>
-            {!imagesLoaded ? (
-              <Skeleton width={2000} height="100%" />
-            ) : (
-              slide.img && (
-                <div inert={true}>
-                  <Image
-                    src={slide.img}
-                    alt={props.description}
-                    className={styles.slide__image}
-                    width={1600}
-                    height={900}
-                    priority
-                    aria-hidden={false}
-                  />
-                </div>
-              )
-            )}
-            <button
+      <div className={styles.slide__wrapper}>
+        <Splide
+          ref={splideRef}
+          tag="div"
+          options={{
+            arrows: false,
+            type: 'loop',
+            gap: '2rem',
+            // autoPlay: true,
+            // interval: 3000,Z
+            // pauseOnHover: true,
+            // resetProgress: false
+          }}
+        >
+          {props.slides.map((slide) => (
+            <SplideSlide key={slide.id} className={styles.slide}>
+              {!imagesLoaded ? (
+                <Skeleton width={2000} height="100%" />
+              ) : (
+                slide.img && (
+                  <div inert={true}>
+                    <Image
+                      src={slide.img}
+                      alt={props.description}
+                      className={styles.slide__image}
+                      width={1600}
+                      height={900}
+                      priority
+                      aria-hidden={false}
+                    />
+                  </div>
+                )
+              )}
+              {/* <button
               className={styles.slide__leftArrow}
               onClick={goPrev}
             />
@@ -134,20 +134,21 @@ export default function Slides(
             <button
               className={styles.slide__rightArrow}
               onClick={goNext}
-            />
-          </SplideSlide>
-        ))}
-      </Splide>
+            /> */}
+            </SplideSlide>
+          ))}
+        </Splide>
+        <button
+          className={styles.slide__leftArrow}
+          onClick={goPrev}
+        />
 
-      {/* <button
-        className={styles.slide__leftArrow}
-        onClick={goPrev}
-      />
+        <button
+          className={styles.slide__rightArrow}
+          onClick={goNext}
+        />
+      </div>
 
-      <button
-        className={styles.slide__rightArrow}
-        onClick={goNext}
-      /> */}
       <p>{props.description}</p>
     </section>
   );

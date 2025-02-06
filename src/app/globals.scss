@@ -13,7 +13,7 @@
 }
 
 html {
-  @include flex(center, '');
+  @include flex(center, column);
   scroll-behavior: smooth;
 }
 
