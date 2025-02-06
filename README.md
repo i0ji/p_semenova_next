@@ -86,6 +86,8 @@ Font size issue to go<br>
 <br><b>v: 0.3.3a / d: 05.02.25<br></b> 
 1. Add UUID lib for unique ids<br>
 2. Finnaly found some new Splide-lib to implement carousel/swiper w/o focus issues like it was in the Slick-slider;<br>
+<br><b>v: 0.3.3a / d: 06.02.25<br></b> 
+1.
 <hr>
 <br>
 <h3> 3.</h3>

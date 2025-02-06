@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Image from 'next/image';
 
@@ -18,11 +18,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  //CONSOLE
-  console.log('IMAGES LOADED: ', imagesLoaded);
-
-  // OPTION
+  const splideRef  = useRef(null);
 
   //SKELETON USE EFFECT CONDITION
   useEffect(() => {
@@ -58,9 +54,45 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
     };
   }, [props.slides]);
 
+  //CONSOLE
+  console.log('IMAGES LOADED: ', imagesLoaded);
+
+  //CURRENT
+  // OPTION SPLIDE SETTINGS
+  const carouselParams = {
+    type: 'loop', // Включаем бесконечную прокрутку
+    perPage: 1, // Количество отображаемых слайдов
+    autoplay: true, // Автопрокрутка
+    interval: 3000, // Интервал автопрокрутки
+    pauseOnHover: true, // Пауза при наведении
+    resetProgress: false
+  };
+  const goNext = () => {
+    if (splideRef.current) {
+      splideRef.current.go('>');
+    }
+  };
+
+
+  const goPrev = () => {
+    if (splideRef.current) {
+      splideRef.current.go('<');
+    }
+  };
+
+
+
+  // OPTION
   return (
     <section className={styles.slides}>
-      <Splide>
+      <Splide
+        {...carouselParams}
+        // options={ {
+        //   rewind: true,
+        //   width : 800,
+        //   gap   : '1rem',
+        // } }
+      >
         <SplideTrack>
           {props.slides.map((slide) => (
             <SplideSlide key={slide.id} className={styles.slide}>
@@ -94,8 +126,8 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
         </SplideTrack>
 
         <div className="splide__arrows">
-          <button className="splide__arrow splide__arrow--prev">Prev</button>
-          <button className="splide__arrow splide__arrow--next">Next</button>
+          <button onClick={goPrev} className="splide__arrow splide__arrow--prev" />
+          <button onClick={goNext} className="splide__arrow splide__arrow--next" />
         </div>
       </Splide>
       <p>{props.description}</p>
