@@ -1,118 +1,154 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
-
-import Slider from 'react-slick';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-
-import './Slick.scss';
 import styles from './Slides.module.scss';
+// import { v4 as uuidv4 } from 'uuid';
 
-export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
-  const sliderRef = useRef<Slider>(null);
-  
-  //OPTION
-  const [slideHeight, setSlideHeight] = useState<number>(0);
+//SPLIDE
+import {
+  Splide,
+  SplideSlide,
+  SplideInstance,
+} from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
+//------
 
-  //OPTION
-  //CONSOLE
-  const windowWidth = window.innerWidth;
-  console.log('Window width: ', windowWidth);
+//SKELETON
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+//--------
 
+export default function Slides(props) {
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  //CURRENT
+  const splideRef = useRef<SplideInstance | null>(null);
+
+  //SKELETON USE EFFECT CONDITION
   useEffect(() => {
-    const updateHeight = () => {
-      const slider = sliderRef.current;
+    const imageElements = document.querySelectorAll(
+      `.${styles.slide__image}`
+    );
+    let loadedCount = 0;
 
-      if (slider && slider.innerSlider && slider.innerSlider.list) {
-        const activeSlide = document.querySelector(
-          '.slick-slide.slick-active img'
-        ) as HTMLImageElement;
-
-        if (activeSlide) {
-          const height = activeSlide.clientHeight;
-          setSlideHeight(height);
-        }
+    const handleImageLoad = () => {
+      loadedCount++;
+      if (loadedCount === imageElements.length) {
+        setImagesLoaded(true);
       }
     };
 
-    window.addEventListener('resize', updateHeight);
-    updateHeight();
+    imageElements.forEach((img) => {
+      const image = img as HTMLImageElement;
+
+      if (image.complete) {
+        handleImageLoad();
+      } else {
+        image.addEventListener('load', handleImageLoad);
+      }
+    });
+
+    if (imageElements.length === 0) {
+      setImagesLoaded(true);
+    }
 
     return () => {
-      window.removeEventListener('resize', updateHeight);
+      imageElements.forEach((img) => {
+        const image = img as HTMLImageElement;
+        image.removeEventListener('load', handleImageLoad);
+      });
     };
-  }, [props.slides, windowWidth]);
-  //OPTION
+  }, [props.slides]);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    waitForAnimate: true,
-    //OPTION return to true
-    adaptiveHeight: false,
-    autoplay: false,
-    //OPTION
-    autoplaySpeed: 4000,
-    pauseOnHover: true,
-    arrows: false,
-    afterChange: () => {
-      const activeElement = document.activeElement as HTMLElement;
-      if (activeElement) {
-        activeElement.blur();
-      }
+  //CONSOLE
+  console.log('IMAGES LOADED: ', imagesLoaded);
+
+  // OPTION SPLIDE SETTINGS
+  // const carouselParams = {
+  //   type: 'loop',
+  //   perpage: 1,
+  //   autoPlay: true,
+  //   interval: 3000,
+  //   pauseonhover: true,
+  //   resetporogress: false,
+  // };
+  const goNext = () => {
+    if (splideRef.current) {
+      //CONSOLE
+      console.log('NEXT');
+      splideRef.current.go('>');
     }
   };
 
+  const goPrev = () => {
+    if (splideRef.current) {
+      //CONSOLE
+      console.log('PREV');
+      splideRef.current.go('<');
+    }
+  };
+
+  // OPTION
   return (
     <section className={styles.slides}>
-      <Slider ref={sliderRef} {...settings}>
-        {props.slides.map((slide) => (
-          <div key={slide.id} className={styles.slide}>
-            {slide.img ? (
-              <Image
-                id={`image-${slide.id}`}
-                src={slide.img}
-                alt={props.description}
-                className={styles.slide__image}
-                width={1600}
-                height={900}
-                priority
-                onLoad={() => {
-                  const activeSlide = document.querySelector(
-                    '.slick-slide.slick-active img'
-                  ) as HTMLImageElement;
-                  if (activeSlide) {
-                    const height = activeSlide.clientHeight;
-                    //CONSOLE
-                    console.log(`Image height: ${height}`);
-                    setSlideHeight(height);
-                  }
-                }}
-              />
-            ) : (
-              <p
-                className={styles.slide__about}
-                style={{ height: slideHeight }}
-              >
-                {slide.about}
-              </p>
-            )}
+      <div className={styles.slide__wrapper}>
+        <Splide
+          ref={splideRef}
+          tag="div"
+          options={{
+            arrows: false,
+            type: 'loop',
+            gap: '2rem',
+            // autoPlay: true,
+            // interval: 3000,Z
+            // pauseOnHover: true,
+            // resetProgress: false
+          }}
+        >
+          {props.slides.map((slide) => (
+            <SplideSlide key={slide.id} className={styles.slide}>
+              {!imagesLoaded ? (
+                <Skeleton width={2000} height="100%" />
+              ) : (
+                slide.img && (
+                  <div inert={true}>
+                    <Image
+                      src={slide.img}
+                      alt={props.description}
+                      className={styles.slide__image}
+                      width={1600}
+                      height={900}
+                      priority
+                      aria-hidden={false}
+                    />
+                  </div>
+                )
+              )}
+              {/* <button
+              className={styles.slide__leftArrow}
+              onClick={goPrev}
+            />
 
             <button
-              className={styles.slide__leftArrow}
-              onClick={() => sliderRef.current?.slickPrev()}
-            />
-            <button
               className={styles.slide__rightArrow}
-              onClick={() => sliderRef.current?.slickNext()}
-            />
-          </div>
-        ))}
-      </Slider>
-      <p className={styles.slides__description}>{props.description}</p>
+              onClick={goNext}
+            /> */}
+            </SplideSlide>
+          ))}
+        </Splide>
+        <button
+          className={styles.slide__leftArrow}
+          onClick={goPrev}
+        />
+
+        <button
+          className={styles.slide__rightArrow}
+          onClick={goNext}
+        />
+      </div>
+
+      <p>{props.description}</p>
     </section>
   );
 }
