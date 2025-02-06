@@ -9,9 +9,9 @@ import {
   Splide,
   Splide as SplideType,
   SplideSlide,
+  SplideInstance,
 } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-// import './test.scss'
 //------
 
 //SKELETON
@@ -22,9 +22,10 @@ import 'react-loading-skeleton/dist/skeleton.css';
 export default function Slides(
   props: SlideModelNamespace.SlidesDataModel
 ) {
-  const [imagesLoaded, setImagesLoaded] =
-    useState(false);
-  const splideRef = useRef<SplideType | null>(null);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  //CURRENT
+  const splideRef = useRef<SplideInstance | null>(null);
 
   //SKELETON USE EFFECT CONDITION
   useEffect(() => {
@@ -46,10 +47,7 @@ export default function Slides(
       if (image.complete) {
         handleImageLoad();
       } else {
-        image.addEventListener(
-          'load',
-          handleImageLoad
-        );
+        image.addEventListener('load', handleImageLoad);
       }
     });
 
@@ -60,10 +58,7 @@ export default function Slides(
     return () => {
       imageElements.forEach((img) => {
         const image = img as HTMLImageElement;
-        image.removeEventListener(
-          'load',
-          handleImageLoad
-        );
+        image.removeEventListener('load', handleImageLoad);
       });
     };
   }, [props.slides]);
@@ -71,7 +66,6 @@ export default function Slides(
   //CONSOLE
   console.log('IMAGES LOADED: ', imagesLoaded);
 
-  //CURRENT
   // OPTION SPLIDE SETTINGS
   const carouselParams = {
     type: 'loop',
@@ -81,21 +75,21 @@ export default function Slides(
     pauseonhover: true,
     resetporogress: false,
   };
-  // const goNext = () => {
-  //   if (splideRef.current) {
-  //     //CONSOLE
-  //     console.log('NEXT');
-  //     splideRef.current.go('>');
-  //   }
-  // };
+  const goNext = () => {
+    if (splideRef.current) {
+      //CONSOLE
+      console.log('NEXT');
+      splideRef.current.go('>');
+    }
+  };
 
-  // const goPrev = () => {
-  //   if (splideRef.current) {
-  //     //CONSOLE
-  //     console.log('PREV');
-  //     splideRef.current.go('<');
-  //   }
-  // };
+  const goPrev = () => {
+    if (splideRef.current) {
+      //CONSOLE
+      console.log('PREV');
+      splideRef.current.go('<');
+    }
+  };
 
   // OPTION
   return (
@@ -104,6 +98,7 @@ export default function Slides(
         ref={splideRef}
         tag="div"
         options={{
+          arrows: false,
           type: 'loop',
           gap: '2rem',
           // autoPlay: true,
@@ -113,10 +108,7 @@ export default function Slides(
         }}
       >
         {props.slides.map((slide) => (
-          <SplideSlide
-            key={slide.id}
-            className={styles.slide}
-          >
+          <SplideSlide key={slide.id} className={styles.slide}>
             {!imagesLoaded ? (
               <Skeleton width={2000} height="100%" />
             ) : (
@@ -134,31 +126,28 @@ export default function Slides(
                 </div>
               )
             )}
-          </SplideSlide>
-        ))}
-
-        {/* <div className="splide__arrows">
-          <button
-            onClick={goPrev}
-            
-            className={`${styles.slide__leftArrow} ${'splide__arrow'} ${'splide__arrow--prev'} `}
-          />
-          <button
-            onClick={goNext}
-            className="splide__arrow splide__arrow--next"
-          />
-        </div> */}
-        {/* <button
+            <button
               className={styles.slide__leftArrow}
               onClick={goPrev}
             />
+
             <button
               className={styles.slide__rightArrow}
-              style={{backgroundColor:'red'}}
               onClick={goNext}
-            /> */}
+            />
+          </SplideSlide>
+        ))}
       </Splide>
 
+      {/* <button
+        className={styles.slide__leftArrow}
+        onClick={goPrev}
+      />
+
+      <button
+        className={styles.slide__rightArrow}
+        onClick={goNext}
+      /> */}
       <p>{props.description}</p>
     </section>
   );
