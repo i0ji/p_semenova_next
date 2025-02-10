@@ -6,23 +6,30 @@ export default function Home() {
   //CONSOLE
   console.log('v: 0.3.3a/10.02.25');
 
+  //OPTION
+  const isTested = 1;
+
   return (
     <>
       <Header />
-      {/* {SlideData.map((slides: SlidesDataModel) => (
+
+      {isTested ? (
         <Slides
           key={uuidv4()}
-          slides={slides.slides}
-          description={slides.description}
+          slides={SlideData[0].slides}
+          description={SlideData[0].description}
         />
-      ))} */}
+      ) : (
+        SlideData.map((slides: SlidesDataModel) => (
+          <Slides
+            key={uuidv4()}
+            slides={slides.slides}
+            description={slides.description}
+          />
+        ))
+      )}
 
-      {/*CURRENT TEST SLIDES */}
-      <Slides
-        key={uuidv4()}
-        slides={SlideData[0].slides}
-        description={SlideData[0].description}
-      />
+      {/* OPTION */}
       {/* <Slides
         key={uuidv4()}
         slides={SlideData[1].slides}

@@ -1,33 +1,27 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import styles from './Slides.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
-//SPLIDE
-import {
-  Splide,
-  SplideSlide,
-  SplideInstance,
-  SplideTrack,
-} from '@splidejs/react-splide';
-// import '@splidejs/react-splide/css';
-import '@splidejs/react-splide/css/core';
-//------
+//CURRENT
+import Flickity from 'react-flickity-component';
+import "./Flickity.scss"
 
-//SKELETON
+// SKELETON
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-//--------
 
 export default function Slides(props: SlidesDataModel) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   //CURRENT
-  const splideRef = useRef<SplideInstance | null>(null);
+  const flickityOptions = {
+    initialIndex: 2,
+  };
 
-  //SKELETON USE EFFECT CONDITION
+  // SKELETON USE EFFECT CONDITION
   useEffect(() => {
     const imageElements = document.querySelectorAll(
       `.${styles.slide__image}`
@@ -43,7 +37,6 @@ export default function Slides(props: SlidesDataModel) {
 
     imageElements.forEach((img) => {
       const image = img as HTMLImageElement;
-
       if (image.complete) {
         handleImageLoad();
       } else {
@@ -63,72 +56,58 @@ export default function Slides(props: SlidesDataModel) {
     };
   }, [props.slides]);
 
-  //CONSOLE
-  console.log('IMAGES LOADED: ', imagesLoaded);
+  // CONSOLE
+  // console.log('IMAGES LOADED: ', imagesLoaded);
 
-  // const goNext = () => {
-  //   if (splideRef.current) {
-  //     //CONSOLE
-  //     console.log('NEXT');
-  //     splideRef.current.go('>');
-  //   }
-  // };
-
-  // const goPrev = () => {
-  //   if (splideRef.current) {
-  //     //CONSOLE
-  //     console.log('PREV');
-  //     splideRef.current.go('<');
-  //   }
-  // };
-
-  // OPTION
   return (
     <section className={styles.slides}>
-      <Splide
-        hasTrack={false}
-        ref={splideRef}
-        options={{
-          // arrows: false,
-          type: 'loop',
-          // gap: '2rem',
-        }}
+      <Flickity
+        className={'carousel'}
+        elementType={'div'}
+        options={flickityOptions}
+        disableImagesLoaded
+        reloadOnUpdate
+        static
       >
-        <SplideTrack>
-          {props.slides.map((slide) => (
-            <SplideSlide
-              key={uuidv4()}
-              ref={splideRef}
-              className={styles.slide}
-            >
-              {!imagesLoaded ? (
-                <Skeleton width={2000} height="100%" />
-              ) : (
-                slide.img && (
-                  <Image
-                    src={slide.img}
-                    alt={props.description}
-                    className={styles.slide__image}
-                    width={2000}
-                    height={900}
-                    priority
-                  />
-                )
-              )}
-            </SplideSlide>
-          ))}
-        </SplideTrack>
-
-        <div className={`${styles.test} splide__arrows`}>
-          <button className="splide__arrow splide__arrow--prev">
-            Prev
-          </button>
-          <button className="splide__arrow splide__arrow--next">
-            Next
-          </button>
-        </div>
-      </Splide>
-
+        {/* {props.slides.map((slide) =>
+          !imagesLoaded ? (
+            <Skeleton key={uuidv4()} height={900} width={2000} />
+          ) : (
+            slide.img && (
+              <Image
+                key={uuidv4()}
+                src={slide.img}
+                alt={props.description}
+                className={`${styles.slide__image} embala__slide`}
+                width={1600}
+                height={900}
+                priority
+                aria-hidden={false}
+              />
+            )
+          )
+        )} */}
+          <Image
+                key={uuidv4()}
+                src={props.slides[1].img}
+                alt={props.description}
+                className={`${styles.slide__image} embala__slide`}
+                width={1600}
+                height={900}
+                priority
+                aria-hidden={false}
+              />
+               <Image
+                key={uuidv4()}
+                src={props.slides[2].img}
+                alt={props.description}
+                className={`${styles.slide__image} embala__slide`}
+                width={1600}
+                height={900}
+                priority
+                aria-hidden={false}
+              />
+      </Flickity>
       <p>{props.description}</p>
     </section>
   );
