@@ -37,12 +37,11 @@ Setting styles and small logic touches;
 Start GH Action settings and met some deploy issues with paths;
 After about <b>56(!SIC)</b> deploys found out how to set next.conifg+nextjs.yml for deploying static app;
 I have working styles and logic, although some features like fonts and library styles don't work as well;
-<<<<<<< HEAD
 <br><br>
 Decided to use another lib - Swiper;<br>
 Styling in progress;<br>
 I am almost satisfied with everything;
-=======
+
 <br><b>v: 0.1.5 a / d: 10.12.24<br></b> 
 Add 'scroll to top' button when rich lowest contacts block;
 Multiple style and logic touches;<br>
@@ -86,6 +85,18 @@ Font size issue to go<br>
 <br><b>v: 0.3.3a / d: 05.02.25<br></b> 
 1. Add UUID lib for unique ids<br>
 2. Finnaly found some new Splide-lib to implement carousel/swiper w/o focus issues like it was in the Slick-slider;<br>
+<br><b>v: 0.3.3a / d: 06.02.25<br></b> 
+1. Pagination dots set via scss selector magic!
+2. SASS^<br>
+<br><b>v: 0.3.3a / d: 07.02.25<br></b> 
+1. Add typeRoots setting to tsconfig<br>
+<br><b>v: 0.3.3b / d: 10.02.25<br></b> 
+1.Multiple libs: keen, nuka, slick, embla, alice, response carousel and others were tested;
+Now: Flickity;
+2. eslint^
+3. pnpm^
+<br>
+<hr>
 <hr>
 <br>
 <h3> 3.</h3>
