@@ -6,8 +6,8 @@ import styles from './Slides.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
 //CURRENT
-import Flickity from 'react-flickity-component';
-import "./Flickity.scss"
+import ImageGallery from 'react-image-gallery';
+import 'react-image-gallery/styles/css/image-gallery.css';
 
 // SKELETON
 import Skeleton from 'react-loading-skeleton';
@@ -59,17 +59,17 @@ export default function Slides(props: SlidesDataModel) {
   // CONSOLE
   // console.log('IMAGES LOADED: ', imagesLoaded);
 
+  const images = [
+    { original: props.slides[0].img },
+    { original: props.slides[1].img },
+    { original: props.slides[2].img },
+    { original: props.slides[3].img },
+  ];
+
   return (
     <section className={styles.slides}>
-      <Flickity
-        className={'carousel'}
-        elementType={'div'}
-        options={flickityOptions}
-        disableImagesLoaded
-        reloadOnUpdate
-        static
-      >
-        {/* {props.slides.map((slide) =>
+      <ImageGallery items={images} />
+      {/* {props.slides.map((slide) =>
           !imagesLoaded ? (
             <Skeleton key={uuidv4()} height={900} width={2000} />
           ) : (
@@ -87,27 +87,26 @@ export default function Slides(props: SlidesDataModel) {
             )
           )
         )} */}
-          <Image
-                key={uuidv4()}
-                src={props.slides[1].img}
-                alt={props.description}
-                className={`${styles.slide__image} embala__slide`}
-                width={1600}
-                height={900}
-                priority
-                aria-hidden={false}
-              />
-               <Image
-                key={uuidv4()}
-                src={props.slides[2].img}
-                alt={props.description}
-                className={`${styles.slide__image} embala__slide`}
-                width={1600}
-                height={900}
-                priority
-                aria-hidden={false}
-              />
-      </Flickity>
+      {/* <Image
+        key={uuidv4()}
+        src={props.slides[1].img}
+        alt={props.description}
+        className={`${styles.slide__image} embala__slide`}
+        width={1600}
+        height={900}
+        priority
+        aria-hidden={false}
+      />
+      <Image
+        key={uuidv4()}
+        src={props.slides[2].img}
+        alt={props.description}
+        className={`${styles.slide__image} embala__slide`}
+        width={1600}
+        height={900}
+        priority
+        aria-hidden={false}
+      /> */}
       <p>{props.description}</p>
     </section>
   );
