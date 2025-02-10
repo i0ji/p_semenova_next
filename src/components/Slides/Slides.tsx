@@ -91,7 +91,7 @@ export default function Slides(props: SlidesDataModel) {
         options={{
           // arrows: false,
           type: 'loop',
-          gap: '2rem',
+          // gap: '2rem',
         }}
       >
         <SplideTrack>
@@ -109,7 +109,7 @@ export default function Slides(props: SlidesDataModel) {
                     src={slide.img}
                     alt={props.description}
                     className={styles.slide__image}
-                    width={1600}
+                    width={2000}
                     height={900}
                     priority
                   />
@@ -119,7 +119,7 @@ export default function Slides(props: SlidesDataModel) {
           ))}
         </SplideTrack>
 
-        <div className="splide__arrows">
+        <div className={`${styles.test} splide__arrows`}>
           <button className="splide__arrow splide__arrow--prev">
             Prev
           </button>
@@ -133,9 +133,3 @@ export default function Slides(props: SlidesDataModel) {
     </section>
   );
 }
-
-// <button className={styles.leftButton} onClick={goPrev} />
-// <button
-//   className={styles.rightButton}
-//   onClick={goNext}
-// />
