@@ -4,12 +4,12 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
   //CONSOLE
-  console.log('v: 0.3.3a/05.02.25');
+  console.log('v: 0.3.3a/10.02.25');
 
   return (
     <>
       <Header />
-      {/* {SlideData.map((slides: SlideModelNamespace.SlidesDataModel) => (
+      {/* {SlideData.map((slides: SlidesDataModel) => (
         <Slides
           key={uuidv4()}
           slides={slides.slides}
@@ -17,17 +17,17 @@ export default function Home() {
         />
       ))} */}
 
-      {/*CURRENT TESTING ONE SLIDE */}
+      {/*CURRENT TEST SLIDES */}
       <Slides
         key={uuidv4()}
         slides={SlideData[0].slides}
         description={SlideData[0].description}
       />
-      <Slides
+      {/* <Slides
         key={uuidv4()}
         slides={SlideData[1].slides}
         description={SlideData[1].description}
-      />
+      /> */}
       <Footer />
     </>
   );

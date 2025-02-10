@@ -1,24 +1,33 @@
-declare global {
-  namespace SlideModelNamespace {
-    interface SlideModel {
-      id: number;
-      img?: string;
-    }
+//LATER
+//   //FIXME
+// declare global {
+//   namespace SlideModelNamespace {
+//     interface SlideModel {
+//       id: number;
+//       img?: string;
+//     }
 
-    //FIXME
-    interface SlidesDataModel {
-      slides: Array<SlideModel>;
-      description: string;
-    }
-  }
+//     interface SlidesDataModel {
+//       slides: Array<SlideModel>;
+//       description: string;
+//     }
+//   }
 
-  //FIXME
-  //LATER
-  // namespace AccordionModelNamespace {
-  //   interface AccordionModel {
-  //     description: string;
-  //     plot: string;
-  //     visibility: boolean;
-  //   }
-  // }
+//   // namespace AccordionModelNamespace {
+//   //   interface AccordionModel {
+//   //     description: string;
+//   //     plot: string;
+//   //     visibility: boolean;
+//   //   }
+//   // }
+// }
+
+interface SlideModel {
+  id: number;
+  img: string;
+}
+
+interface SlidesDataModel {
+  slides: Array<SlideModel>;
+  description: string;
 }

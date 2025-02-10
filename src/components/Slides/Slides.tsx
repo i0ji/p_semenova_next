@@ -3,15 +3,17 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import styles from './Slides.module.scss';
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 //SPLIDE
 import {
   Splide,
   SplideSlide,
   SplideInstance,
+  SplideTrack,
 } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+// import '@splidejs/react-splide/css';
+import '@splidejs/react-splide/css/core';
 //------
 
 //SKELETON
@@ -19,7 +21,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 //--------
 
-export default function Slides(props) {
+export default function Slides(props: SlidesDataModel) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
   //CURRENT
@@ -64,91 +66,76 @@ export default function Slides(props) {
   //CONSOLE
   console.log('IMAGES LOADED: ', imagesLoaded);
 
-  // OPTION SPLIDE SETTINGS
-  // const carouselParams = {
-  //   type: 'loop',
-  //   perpage: 1,
-  //   autoPlay: true,
-  //   interval: 3000,
-  //   pauseonhover: true,
-  //   resetporogress: false,
+  // const goNext = () => {
+  //   if (splideRef.current) {
+  //     //CONSOLE
+  //     console.log('NEXT');
+  //     splideRef.current.go('>');
+  //   }
   // };
-  const goNext = () => {
-    if (splideRef.current) {
-      //CONSOLE
-      console.log('NEXT');
-      splideRef.current.go('>');
-    }
-  };
 
-  const goPrev = () => {
-    if (splideRef.current) {
-      //CONSOLE
-      console.log('PREV');
-      splideRef.current.go('<');
-    }
-  };
+  // const goPrev = () => {
+  //   if (splideRef.current) {
+  //     //CONSOLE
+  //     console.log('PREV');
+  //     splideRef.current.go('<');
+  //   }
+  // };
 
   // OPTION
   return (
     <section className={styles.slides}>
-      <div className={styles.slide__wrapper}>
-        <Splide
-          ref={splideRef}
-          tag="div"
-          options={{
-            arrows: false,
-            type: 'loop',
-            gap: '2rem',
-            // autoPlay: true,
-            // interval: 3000,Z
-            // pauseOnHover: true,
-            // resetProgress: false
-          }}
-        >
+      <Splide
+        hasTrack={false}
+        ref={splideRef}
+        options={{
+          // arrows: false,
+          type: 'loop',
+          gap: '2rem',
+        }}
+      >
+        <SplideTrack>
           {props.slides.map((slide) => (
-            <SplideSlide key={slide.id} className={styles.slide}>
+            <SplideSlide
+              key={uuidv4()}
+              ref={splideRef}
+              className={styles.slide}
+            >
               {!imagesLoaded ? (
                 <Skeleton width={2000} height="100%" />
               ) : (
                 slide.img && (
-                  <div inert={true}>
-                    <Image
-                      src={slide.img}
-                      alt={props.description}
-                      className={styles.slide__image}
-                      width={1600}
-                      height={900}
-                      priority
-                      aria-hidden={false}
-                    />
-                  </div>
+                  <Image
+                    src={slide.img}
+                    alt={props.description}
+                    className={styles.slide__image}
+                    width={1600}
+                    height={900}
+                    priority
+                  />
                 )
               )}
-              {/* <button
-              className={styles.slide__leftArrow}
-              onClick={goPrev}
-            />
-
-            <button
-              className={styles.slide__rightArrow}
-              onClick={goNext}
-            /> */}
             </SplideSlide>
           ))}
-        </Splide>
-        <button
-          className={styles.slide__leftArrow}
-          onClick={goPrev}
-        />
+        </SplideTrack>
 
-        <button
-          className={styles.slide__rightArrow}
-          onClick={goNext}
-        />
-      </div>
+        <div className="splide__arrows">
+          <button className="splide__arrow splide__arrow--prev">
+            Prev
+          </button>
+          <button className="splide__arrow splide__arrow--next">
+            Next
+          </button>
+        </div>
+      </Splide>
 
       <p>{props.description}</p>
     </section>
   );
 }
+
+// <button className={styles.leftButton} onClick={goPrev} />
+// <button
+//   className={styles.rightButton}
+//   onClick={goNext}
+// />

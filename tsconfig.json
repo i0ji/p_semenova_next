@@ -24,7 +24,8 @@
       "@/*": ["./src/*"],
       "public": ["./public/"],
       "components": ["./src/app/components/"]
-    }
+    },
+    "typeRoots": ["./src/services"]
   },
   "include": [
     "**/*.ts",
