@@ -89,8 +89,12 @@ Font size issue to go<br>
 1. Pagination dots set via scss selector magic!
 2. SASS^<br>
 <br><b>v: 0.3.3a / d: 07.02.25<br></b> 
-1. Add typeRoots setting to tsconfig
-2.
+1. Add typeRoots setting to tsconfig<br>
+<br><b>v: 0.3.3b / d: 10.02.25<br></b> 
+1.Multiple libs: keen, nuka, slick, embla, alice, response carousel and others were tested;
+Now: Flickity;
+2. eslint^
+3. pnpm^
 <br>
 <hr>
 <hr>
