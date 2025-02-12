@@ -94,7 +94,12 @@ Font size issue to go<br>
 1.Multiple libs: keen, nuka, slick, embla, alice, response carousel and others were tested;
 Now: Flickity;
 2. eslint^
-3. pnpm^
+3. pnpm^<br>
+<br><b>v: 0.3.3.11 / d: 11.02.25<br></b> 
+1. I decided to assign versions based on the number of carousel/slider variations; So 11 will stand for 11 lib - AwesomeSlider. For some reason and due to unsuitable implementation, none of the recent libraries suited my needs;<br>
+<br><b>v: 0.3.3.11 / d: 12.02.25<br></b>
+1. Package updates, pnpm update;<br>
+2. Cleared package.json from multiple libs;
 <br>
 <hr>
 <hr>

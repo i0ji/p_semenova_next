@@ -6,8 +6,8 @@ import styles from './Slides.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
 //CURRENT
-import ImageGallery from 'react-image-gallery';
-import 'react-image-gallery/styles/css/image-gallery.css';
+import AwesomeSlider from 'react-awesome-slider';
+import AwsSliderStyles from 'react-awesome-slider/src/styles.scss';
 
 // SKELETON
 import Skeleton from 'react-loading-skeleton';
@@ -59,17 +59,10 @@ export default function Slides(props: SlidesDataModel) {
   // CONSOLE
   // console.log('IMAGES LOADED: ', imagesLoaded);
 
-  const images = [
-    { original: props.slides[0].img },
-    { original: props.slides[1].img },
-    { original: props.slides[2].img },
-    { original: props.slides[3].img },
-  ];
-
   return (
     <section className={styles.slides}>
-      <ImageGallery items={images} />
-      {/* {props.slides.map((slide) =>
+      <AwesomeSlider>
+        {props.slides.map((slide) =>
           !imagesLoaded ? (
             <Skeleton key={uuidv4()} height={900} width={2000} />
           ) : (
@@ -86,27 +79,8 @@ export default function Slides(props: SlidesDataModel) {
               />
             )
           )
-        )} */}
-      {/* <Image
-        key={uuidv4()}
-        src={props.slides[1].img}
-        alt={props.description}
-        className={`${styles.slide__image} embala__slide`}
-        width={1600}
-        height={900}
-        priority
-        aria-hidden={false}
-      />
-      <Image
-        key={uuidv4()}
-        src={props.slides[2].img}
-        alt={props.description}
-        className={`${styles.slide__image} embala__slide`}
-        width={1600}
-        height={900}
-        priority
-        aria-hidden={false}
-      /> */}
+        )}
+      </AwesomeSlider>
       <p>{props.description}</p>
     </section>
   );
