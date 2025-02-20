@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 export default function Home() {
   //CONSOLE
-  console.log('v: 0.3.3a/05.02.25');
+  // console.log('v: 0.3.4/20.02.25');
 
   return (
     <>
