@@ -6,8 +6,6 @@ import styles from './Slides.module.scss';
 import { v4 as uuidv4 } from 'uuid';
 
 //CURRENT
-import AwesomeSlider from 'react-awesome-slider';
-import AwsSliderStyles from 'react-awesome-slider/src/styles.scss';
 
 // SKELETON
 import Skeleton from 'react-loading-skeleton';
@@ -15,11 +13,6 @@ import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function Slides(props: SlidesDataModel) {
   const [imagesLoaded, setImagesLoaded] = useState(false);
-
-  //CURRENT
-  const flickityOptions = {
-    initialIndex: 2,
-  };
 
   // SKELETON USE EFFECT CONDITION
   useEffect(() => {
@@ -61,26 +54,44 @@ export default function Slides(props: SlidesDataModel) {
 
   return (
     <section className={styles.slides}>
-      <AwesomeSlider>
-        {props.slides.map((slide) =>
-          !imagesLoaded ? (
-            <Skeleton key={uuidv4()} height={900} width={2000} />
-          ) : (
-            slide.img && (
-              <Image
-                key={uuidv4()}
-                src={slide.img}
-                alt={props.description}
-                className={`${styles.slide__image} embala__slide`}
-                width={1600}
-                height={900}
-                priority
-                aria-hidden={false}
-              />
-            )
+      {/* {props.slides.map((slide) =>
+        !imagesLoaded ? (
+          <Skeleton key={uuidv4()} height={900} width={2000} />
+        ) : (
+          slide.img && (
+            <Image
+              key={uuidv4()}
+              src={slide.img}
+              alt={props.description}
+              className={`${styles.slide__image} embala__slide`}
+              width={1600}
+              height={900}
+              priority
+              aria-hidden={false}
+            />
           )
-        )}
-      </AwesomeSlider>
+        )
+      )} */}
+
+      {props.slides.map((slide) =>
+        !imagesLoaded ? (
+          <Skeleton key={uuidv4()} height={900} width={2000} />
+        ) : (
+          slide.img && (
+            <Image
+              key={uuidv4()}
+              src={slide.img}
+              alt={props.description}
+              className={`${styles.slide__image} panel`}
+              width={1600}
+              height={900}
+              priority
+              aria-hidden={false}
+            />
+          )
+        )
+      )}
+
       <p>{props.description}</p>
     </section>
   );

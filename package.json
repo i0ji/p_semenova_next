@@ -1,6 +1,6 @@
 {
   "name": "semenova_next",
-  "version": "0.3.3a",
+  "version": "0.3.3.12",
   "private": true,
   "repository": {
     "type": "git",
@@ -21,19 +21,19 @@
     "/temp/"
   ],
   "devDependencies": {
-    "@types/node": "^22.13.1",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "eslint": "^9.20.1",
     "eslint-config-next": "15.1.7",
     "file-loader": "^6.2.0",
     "gh-pages": "^6.3.0",
-    "react-awesome-slider": "^4.1.0",
+    "rc-banner-anim": "^2.4.5",
     "react-loading-skeleton": "^3.5.0",
     "react-yandex-metrika": "^2.6.0",
-    "sass": "^1.84.0",
-    "sass-loader": "^16.0.4",
+    "sass": "^1.85.0",
+    "sass-loader": "^16.0.5",
     "typescript": "^5.7.3",
-    "uuid": "^11.0.5"
+    "uuid": "^11.1.0"
   }
 }
