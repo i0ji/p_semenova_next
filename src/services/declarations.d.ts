@@ -1,33 +1,17 @@
-//LATER
-//   //FIXME
-// declare global {
-//   namespace SlideModelNamespace {
-//     interface SlideModel {
-//       id: number;
-//       img?: string;
-//     }
+import { StaticImageData } from 'next/image';
 
-//     interface SlidesDataModel {
-//       slides: Array<SlideModel>;
-//       description: string;
-//     }
-//   }
+declare global {
+  namespace SlideModelNamespace {
+    interface SlideModel {
+      id: number;
+      img: string | StaticImageData;
+    }
 
-//   // namespace AccordionModelNamespace {
-//   //   interface AccordionModel {
-//   //     description: string;
-//   //     plot: string;
-//   //     visibility: boolean;
-//   //   }
-//   // }
-// }
-
-interface SlideModel {
-  id: number;
-  img: string;
-}
-
-interface SlidesDataModel {
-  slides: Array<SlideModel>;
-  description: string;
+    interface SlidesDataModel {
+      slides: Array<SlideModel>;
+      description: string;
+      id?: number;
+      lastSlide?: boolean;
+    }
+  }
 }
