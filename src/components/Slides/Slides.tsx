@@ -1,27 +1,25 @@
 'use client';
 
-import { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
+import Skeleton from 'react-loading-skeleton';
 import Image from 'next/image';
 import Slider from 'react-slick';
 
 import './Slider.scss';
 import styles from './Slides.module.scss';
 
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-
-export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
+export default function Slides(
+  props: SlideModelNamespace.SlidesDataModel
+) {
   const sliderRef = useRef<Slider>(null);
+
   const [imagesLoaded, setImagesLoaded] = useState(false);
 
-  //CONSOLE
-  console.log('IMAGES LOADED: ', imagesLoaded);
-
-  // OPTION
-
   useEffect(() => {
-    const imageElements = document.querySelectorAll(`.${styles.slide__image}`);
+    const imageElements = document.querySelectorAll(
+      `.${styles.slide__image}`
+    );
     let loadedCount = 0;
 
     const handleImageLoad = () => {
@@ -54,18 +52,23 @@ export default function Slides(props: SlideModelNamespace.SlidesDataModel) {
   }, [props.slides]);
 
   const settings = {
-    accessibility: false,
     dots: true,
     infinite: true,
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     waitForAnimate: true,
-    adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: true,
-    arrows: false
+    arrows: false,
+    afterChange: () => {
+      const activeElement =
+        document.activeElement as HTMLElement;
+      if (activeElement) {
+        activeElement.blur();
+      }
+    },
   };
 
   return (
